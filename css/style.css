@@ -1,0 +1,750 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,600i,700,800');
+
+input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {  }
+@-webkit-keyframes autofill {
+    to {
+        color: #666;
+        background: transparent;
+    }
+}
+
+input:-webkit-autofill {
+    -webkit-animation-name: autofill;
+    -webkit-animation-fill-mode: both;
+}
+
+*{ margin:0px; padding:0px; box-sizing:border-box; font-family: 'Montserrat', sans-serif !important;}
+a{ text-decoration:none;}
+img{border:none;}
+.clr{ clear:both; margin:0px; padding:0px;}
+h1,h2,h3,h4,h5,h6,h7,p,span{ margin:0px; padding:0px;}
+body {margin: 0; padding: 0; background: #f4f4f4; font-family: 'Montserrat', sans-serif !important;}
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #a4a2a3;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: #a4a2a3;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: #a4a2a3;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: #a4a2a3;
+}
+
+body .modal-dialog {
+    margin-top: 20%;
+}
+.meetupmainblock .meetblocks1:first-child {
+    margin-top: 7px;
+}
+.upd-prof .uploadbox img {
+    width: 100%;
+}
+.upd-prof .uploadbox {
+    max-width: 33%;
+    display: inline-block;
+}
+.back img {
+    width: 12px;
+    float: left;
+    margin-top: 8px;
+    margin-right: 3px;
+}
+.upd-prof .uploadbox a {
+    padding: 0px;
+}
+body.lauch-body {
+    background: #fff;
+}
+.mmbrpageonly .meetblocks1 p {
+    float: left;
+    margin: 0px;
+    line-height: normal;
+}
+.newchatrequest .meetblocks1 h2 a {
+    margin-bottom: 2px;
+}
+.newchatrequest .member-ftr a:last-child {
+    float: right;
+}
+.newchatrequest .member-ftr a:first-child {
+    float: left;
+}
+.newmeetupinvite .meetblocks1 p {margin-top:6px;}
+.regmainsctn .registerblock {
+    padding-bottom: 40px;
+}
+.wrapper {    max-width: 768px;    height: auto;    display: inline-block;    width: 100%;    margin: 0 auto;    background: #f1f1f1;    float: none;}
+body .container {
+    float: left;
+    width: 100%;
+	padding:0px;
+}
+.innerpage {
+    float: left;
+    width: 100%;
+    padding: 0px 20px;
+}
+.launchpage {text-align: center;  position: relative; float: left;width: 100%; min-height: 570px; background:#fff;}
+.logobox img {    width: 58%;}
+.launchpage .logobox {    position: absolute;left: 50%; top: 50%; width: 100%;transform: translate(-50%,-50%); text-align: center;}
+header {
+    float: left;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+	position:relative;
+	background:#fff;
+}
+
+.header-menu {
+    float: left;
+    padding-top: 33px;
+    width: 52px;
+}
+.header-menu img {
+    width: 100%;
+}
+.header-menu.toggled ul.afterclieckshow {
+    display: block;
+}
+.menubox {
+    position: relative;
+    float: left;
+    cursor: pointer;
+}
+ul.afterclieckshow {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    background: #626262;
+    padding: 0px ;
+    margin-top: 77px;
+	z-index: 999;
+}
+.afterclieckshow a {
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    text-transform: capitalize;
+    float: left;
+    width: 100%;
+    padding: 11px 26px;
+    font-weight: 400;
+    border-bottom: 1px solid #868686;
+}
+.afterclieckshow li {
+    list-style: none;
+    text-align: left;
+}	
+.afterclieckshow{ display:none;}
+.header-right {
+    float: right;
+	width:175px;
+}
+.header-right img{ width:100%;}
+h1.header-title {
+    font-size: 51px;
+    text-align: center;
+    font-weight: 500;
+    padding:18px 0px;
+	    text-transform: uppercase;	margin:0px;
+}
+.loginmainblock {
+    float: left;
+    width: 100%;
+    background: #fff;
+    padding: 30px 50px;
+    box-shadow: 0px 0px 6px 2px #e4e4e4;
+    margin-bottom: 50px;
+}
+.loginmainblock input {
+    float: left;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #e5e5e5;
+    text-align: center;
+        padding-top: 15px;
+    font-size: 30px;
+    color: #a4a2a3;
+	    font-weight: 500;
+}
+.editprofilepage .loginmainblock input{ font-weight:normal;}
+.loginmainblock a {
+    width: 100%;
+    text-align: center;
+    float: left;
+    color: #313131;
+    padding: 20px 0px;
+    font-size: 32px;
+}
+.loginmainblock .submitbtn {
+    background: #e13c4c;
+    color: #fff;
+    padding: 26px 0px;
+    height: auto;
+    font-size: 43px;
+	text-transform:uppercase;
+}
+a.register-link {
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.loginmainblock .submitbtn:hover {
+    background: #000;
+    cursor: pointer;
+}
+.or {
+    font-size: 31px;
+    text-align: center;
+    padding: 15px 0px;
+    float: left;
+    width: 100%;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.registerblock .step-no {
+    margin-bottom: 50px;
+}
+ul.tabs {
+    float: left;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 60px;
+}
+ul.tabs li {
+    width: 46%;
+    display: inline-block;
+    text-align: center;
+    position: relative;
+    margin: 0px 8px;
+    vertical-align: top;
+
+}
+ul.tabs li a {
+    padding: 0px;
+    float: left;
+    width: 24%;
+    position: absolute;
+    left: 0;
+    top: -20px;
+    background: #fff;
+    left: 41%;
+}
+ul.tabs li a span {
+    background: #a8a6a7;
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    color: #000;
+    display: inline-block;
+    padding: 0px;
+    float: none;
+    padding: 9;
+}
+ul.tabs li.active a span{ background:#e03e4d;}
+ul.tabs li.active:before{ background:#e03e4d;}
+ul.tabs li:before {
+    width: 100%;
+    height: 10px;
+    background: #a8a6a7;
+    position: relative;
+    content: "";
+    /* z-index: 999999999; */
+    float: left;
+    left: 0;
+}
+.uploadfile {
+    background: #e03c4b;
+    margin: 20px;
+    display: inline-block;
+    padding: 15px 16px;
+    color: #89212a;
+    font-size: 30px;
+    border-radius: 10px;
+    font-weight: 500;
+    margin: 50px 0px;
+}
+.registerblock{ text-align:center;}
+.uploadbox a {
+    padding-top: 0px;
+}
+
+.editprofilepage input.submitbtn {
+    margin-top: 35px;
+}
+
+ul.db_ul {
+    float: left;
+    width: 100%;
+    text-align: center;
+}
+ul.db_ul li {
+    display: inline-block;
+    float: none;
+    width: 40%;
+    background: #e03c4b;
+    vertical-align: top;
+    margin: 20px;
+    padding: 0px 11px;
+    min-height: 272px;
+    box-sizing: border-box;
+    padding-top: 30px;
+}
+.db_ul a {
+    font-size: 34px;
+    font-weight: 500;
+    color: #313131;
+}
+.db_ul img{margin-bottom:10px;}
+.dashboardpage .loginmainblock {
+    padding: 15px 5px;
+}
+.db_ul a span {
+    float: left;
+    width: 100%;
+}
+.db_ul a p {
+    font-size: 18px;
+    color: #fff;
+}
+ul.db_ul li:hover{ background:#000;}
+ul.db_ul li:hover a{ color:#fff;}
+body select {
+    background: #e03c4b;
+    color: #fff;
+    border-radius: 5px;
+    padding: 2px 5px;
+    border: none;
+    font-size: 23px;
+    box-shadow: 0px 1px 4px #000;
+    float: left;
+    font-size: 13px !important;
+}
+.metup-btn {
+    text-align: center;
+}
+a.addmeetup {
+    color: #000;
+    display: inline-block;
+    float: none;
+    padding: 2px 3px;
+    background: #e03c4b;
+    color: #fff;
+    margin-top: 0px;
+    border-radius: 4px;
+    box-shadow: 0px 1px 1px #000;
+    font-size: 13px;
+}
+a.addmeetup:hover{ color:#fff;}
+.meetuppage {
+    padding: 0px 10px;
+}
+.mtup:focus, .mtup:hover {
+    color: #fff;
+    text-decoration: none;
+}
+a.mtup {
+    background: #e03c4b;
+    color: #fff;
+    font-size: 13px;
+    padding: 2px 5px;
+    border-radius: 4px;
+    float: right;
+	line-height: normal;
+	box-shadow: 0px 1px 4px #000;
+	font-family:'Montserrat', sans-serif ;
+	
+}
+.innerpage.meetuppage.memberpage {
+    background: url("../images/meet-tr.png") bottom;
+    padding-bottom: 158px;
+	    background-repeat: no-repeat;
+}
+.meetuppage h1.header-title {
+    padding-bottom: 0px;
+}
+
+.meetblocks1 {
+    background: #fff;
+    margin-top: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+	    float: left;
+    width: 100%;
+}
+
+.meetblocks1 h2 a {
+    color: #d5573a;
+    font-weight: 500;
+    font-size: 30px;
+	    float: left;
+    width: 100%;
+}
+.meetblocks1 span{color: #d5573a; padding-right:10px;}
+.meetblocks1 p {
+    font-size: 31px;
+    color: #313131;
+    font-weight: 500;
+	margin-top:5px;
+	margin-bottom:0px;
+}
+
+.meet-ftr {
+    float: left;
+    width: 100%;
+}
+.meet-ftr img {
+    float: left;
+    width: 100%;
+}
+.meetblocks1 h2 {
+    margin: 0px;
+}
+.add-meetuppopup .modal-content {
+    display: block;
+    float: left;
+	border-radius: 0px;
+}
+.add-meetuppopup .loginmainblock {
+    box-shadow: none;
+    padding: 0px 27px;
+	    margin-bottom: 30px;
+}
+.add-meetuppopup .modal-title {
+    text-align: center;
+    font-size: 22px;
+}
+.add-meetuppopup .modal-header {
+    border: none;
+    padding-bottom: 0px;
+}
+.add-meetuppopup .modal-header .close {
+   top: 5px;
+    color: #313131 !important;
+    opacity: inherit;
+    font-size: 43px;
+    line-height: 15px;
+    height: auto !important;
+    position: absolute;
+    right: 0px;
+    font-weight: normal;
+}
+.add-meetuppopup .loginmainblock input {
+    height: auto;
+    font-size: 17px;
+    padding-top: 12px;
+}
+.add-meetuppopup .loginmainblock input.submitbtn {
+    margin-top: 24px;
+}
+.memberleft-block {
+    float: left;
+    padding-right: 20px;
+    width: 27%;
+    padding-left: 20px;
+}
+.memberright-block {
+    float: left;
+    width: 60%;
+}
+.mem-chat {
+    width: 13%;
+    float: left;
+    padding-right: 15px;
+}
+.member-ftr {
+    float: left;
+    width: 100%;
+    border-top: 1px solid #d6d6d6;
+
+    margin-top: 20px;
+}
+.member-ftr a {
+    width: 50%;
+    float: left;
+    text-align: center;
+    
+    font-size: 30px;
+    color: #313131;
+    font-weight: 500;
+	    padding: 20px 0px;
+}
+.member-ftr a:first-child{border-right: 1px solid #d6d6d6;}
+.memberpage .meetblocks1 {
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+}
+.memberleft-block img {
+    width: 100%;
+}
+
+.mem-chat img {
+    width: 100%;
+}
+a.back {
+    float: right;
+    color: #000;
+}
+.newchatrequest h4.modal-title {
+    font-size: 31px;
+	    color: #000;
+}
+.newchatrequest p {
+    FONT-SIZE: 30PX;
+    TEXT-ALIGN: center;
+    font-weight: 500;
+	    color: #000;
+    
+
+}
+.newchatrequest .meetblocks1 p{    margin-top: 0; line-height: normal; text-align:left;}
+.newchatrequest .meetblocks1 {
+    border: 3px solid #000;
+	    padding: 6px 0px;
+}
+.newchatrequest .memberleft-block {
+    float: left;
+    padding-right: 5px;
+    width: 33%;
+    padding-left: 4px;
+
+}
+.newchatrequest h2 {
+    float: left;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.newchatrequest .member-ftr {
+    text-align: center;
+    border: none;
+    padding-bottom: 20px;
+}
+.newchatrequest .member-ftr a {
+    float: none;
+    display: inline-block;
+    width: auto;
+    padding: 10px;
+    border: none;
+    background: #e13c4c;
+    padding: 10px 30px;
+    color: #fff;
+    border-radius: 3px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+.newchatrequest p span{ color:#e13c4c;}
+.newmeetupinvite .meetblocks1 {
+    padding: 10px;
+	    margin: 0px;
+}
+p.detailbox {
+    text-align: left;
+    margin: 0px;
+}
+
+.loadermain {
+    float: left;
+    width: 100%;
+    position: fixed;
+    background: rgba(0,0,0,0.7);
+    height: 100%;	
+    top: 0;
+    text-align: center;
+	display:none;
+}
+
+.loader {
+       border: 5px solid #f3f3f3;
+    border-top: 5px solid #3498db;
+    border-radius: 49%;
+    width: 60px;
+    height: 60px;
+    animation: spin 2s linear infinite;
+    position: absolute;
+    left: 48%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+}
+/**Responsive css start here**/
+
+@media only screen and (min-width:601px) and (max-width:700px){
+.newchatrequest .member-ftr a {
+    margin: 0px 40px;
+}	
+ul.tabs li a span {
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+	    font-size: 23px;
+		
+}
+ul.tabs li a {
+	top: -17px;   
+}
+.db_ul a span {
+    font-size: 25px;
+}
+}
+@media only screen and (min-width:481px) and (max-width:600px){
+.newchatrequest .member-ftr a {
+    padding: 10px;
+    margin: 0px 12px;
+    padding: 7px 17px;
+    border-radius: 5px;
+	font-size:24px;
+}	
+.member-ftr a {
+    font-size: 24px;
+    padding: 10px 0px;
+}	
+.meetblocks1 {    padding: 13px;}
+.meetblocks1 h2 a {    font-size: 26px;}
+.meetblocks1 p {        font-size: 20px;    margin-top: 8px;}
+.db_ul a span {
+    font-size: 28px;
+}
+ul.tabs li a span {
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+	    font-size: 23px;
+		
+}
+ul.tabs li a {
+	top: -11px;   
+}
+}
+@media only screen and (min-width:320px) and (max-width:640px){
+body select {
+    font-size: 15px;
+}	
+
+.header-right {   width: 98px;}
+.menubox {    width: 30px;}
+h1.header-title { font-size: 27px;}
+.loginmainblock input {
+    font-size: 21px;
+}
+.loginmainblock {
+    padding: 18px 30px;
+}
+.loginmainblock .submitbtn {
+    padding: 13px 0px;
+    font-size: 21px;
+}
+.loginmainblock a {
+    padding: 15px 0px;
+    font-size: 17px;
+}
+ul.afterclieckshow {
+    margin-top: 43px;
+}
+.header-menu {
+    padding-top: 21px;
+}
+.registerblock .step-no {
+    margin-bottom: 27px;
+}
+.or {
+    font-size: 21px;
+    padding: 6px 0px;
+}
+ul.tabs li {
+     width: 48%;
+    margin: 0px 1px;
+}
+
+
+ul.tabs {
+    margin-bottom: 30px;
+}
+ul.db_ul li {    width: 42%;    margin: 6px;    padding: 0px 11px;    min-height: 116px;    padding-top: 10px;}
+.db_ul img {       margin-bottom: 3px;    height: 40px;}
+}
+
+@media only screen and (min-width:320px) and (max-width:480px){
+.loginmainblock input {
+    font-size: 18px;
+	font-weight: normal;
+}	
+.newmeetupinvite .meetblocks1 p {font-size:13px; margin-top:6px;}	
+.myfriendspage .meetblocks1 h2 a {
+    font-size: 16px;
+	margin-bottom:3px;
+}
+.myfriendspage .meetblocks1 p {
+    font-size: 13px;
+    margin-top: 0;
+    float: left;
+}	
+.newchatrequest .member-ftr a {
+    padding: 10px;
+    padding: 5px 20px;
+    font-size: 13px;
+}
+.newchatrequest h4.modal-title {
+    font-size: 22px;
+}
+.newchatrequest p {
+    FONT-SIZE: 19PX;
+}
+.meetblocks1{ margin-bottom:0px;}	
+.memberleft-block {
+    padding-right: 10px;
+    padding-left: 10px;
+}
+.member-ftr a {
+    font-size: 16px;
+    padding: 7px 0px;
+}	
+	ul.tabs li a{ top: -9px;      width: 36%; left: 31%;}
+	
+	ul.tabs li a span {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+
+    padding: 9;
+}
+.uploadfile {
+     padding: 12px 9px;
+    font-size: 19px;
+    border-radius: 5px;
+    margin: 28px 0px 37px 0px;
+}
+.db_ul a span {
+    font-size: 17px;
+}
+.meetblocks1 {    padding: 13px;}
+.meetblocks1 h2 a {    font-size: 26px;}
+.meetblocks1 p {        font-size: 16px;    margin-top: 8px;}
+}
+@media only screen and (min-width:361px) and (max-width:700px){
+.add-meetuppopup .modal-content {
+    padding: 10px 22px;
+}
+}
+@media only screen and (min-width:320px) and (max-width:400px){
+.editprofilepage .loginmainblock {   padding: 18px 20px;}	
+.editprofilepage .loginmainblock input{     font-size: 18px;}	
+.newchatrequest h2{margin-bottom: 2px;}	
+.newchatrequest .meetblocks1 h2 a{    font-size: 18px;}
+.meetblocks1 {    padding: 13px;}
+.meetblocks1 h2 a {    font-size: 16px; margin-bottom: 3px;}
+.meetblocks1 p {    font-size: 13px;    margin-top: 3px;}
+.onlymeetup .meetblocks1 p {    font-size: 14px;    margin-top: 3px;}
+}

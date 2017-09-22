@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Her Pair</title>
+<link href="css/style.css" type="text/css" rel="stylesheet">
+<script src="js/jquery.min.js"></script>
+<script src="js/config.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery(".header-menu").click(function(){
+        jQuery(this).toggleClass("toggled");
+    });
+});
+
+if(parseInt(localStorage.getItem("herpair_log_id")) > 0)
+{
+	window.location = './index.html';
+}
+</script>
+</head>
+
+<body>
+<div class="wrapper">
+  <header>
+    <div class="header-top">
+      <div class="header-menu">
+        <div class="menubox"><img src="images/menu.png"></div>
+        <ul class="afterclieckshow">
+          <li><a href="index.html">Home</a></li>         
+        </ul>
+      </div>
+      <div class="header-right"><img src="images/menu-logo.png"></div>
+    </div>
+  </header>
+  <div class="container">
+    <div class="innerpage loginpage">
+      <h1 class="header-title">LOGIN</h1>
+      <div class="loginmainblock">
+        <input type="text" name="login_email" id="login_email" placeholder="EMAIL ID"/>
+        <input type="password" name="login_password" id="login_password" placeholder="PASSWORD"/>
+        <a href="#">Forgot Password?</a>
+        <input class="submitbtn" type="submit" onClick="custLogIn();" value="Log in"/>
+        <a class="register-link" href="register.html">Register</a> </div>
+    </div>
+  </div>
+</div>
+</body>
+<script type="text/javascript">
+function custLogIn(){
+	var url = siteurl + '?route=account/login';	
+	jQuery.ajax({
+			 type: 'POST',
+			 url: url,
+			 data: $('.loginpage input[type=\'text\'], .loginpage input[type=\'password\']'),
+			 dataType: 'json',
+			 crossDomain: true,
+			 success: function(data){
+								 
+				 if(data['error'])
+				 {
+					alert(data['error']['text']);	 
+				 }else if(data['success'])
+				 {
+					localStorage.setItem("herpair_log_id", data['success']['customer_id']);					
+					window.location = './index.html';
+				 }
+			}
+   		});
+		
+}
+</script>
+</html>

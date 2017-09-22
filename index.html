@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Her Pair</title>
+<link href="css/style.css" type="text/css" rel="stylesheet">
+<script src="js/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery(".header-menu").click(function(){
+        jQuery(this).toggleClass("toggled");
+    });
+});
+
+
+if(localStorage.getItem("herpair_log_id") === null){
+  window.location = './login.html';
+}else if(parseInt(localStorage.getItem("herpair_log_id")) > 0)
+{
+	
+}
+</script>
+</head>
+
+<body>
+<div class="wrapper">
+  <header>
+    <div class="header-top">
+      <div class="header-menu">
+        <div class="menubox"><img src="images/menu.png"></div>
+        <ul class="afterclieckshow">
+          <li><a href="javascript:void(0);">Home</a></li>          
+          <li><a href="#">Updated Profile</a></li>
+          <li><a href="javascript:void(0)" onClick="logOut();">Log Out</a></li>
+        </ul>
+      </div>
+      <div class="header-right"><img src="images/menu-logo.png"></div>
+    </div>
+  </header>
+  <div class="container">
+    <div class="innerpage dashboardpage">
+      <h1 class="header-title">Dashboard</h1>
+      <div class="loginmainblock">
+        <div classd="db-blocks">
+          <ul class="db_ul">
+            <li><a href="members.html"><img src="images/member.png"/> <span>MEMBERS</span></a></li>
+            <li><a href="meetup.html"><img src="images/meetup.png"/> <span>MEET UPS</span></a></li>
+            <li><a href="myfreiends.html"><img src="images/messages.png"/> <span>MESSAGES</span></a></li>
+            <li><a href="update-profile.html"><img src="images/profiles.png"/> <span>PROFILE</span></a></li>
+            <li><a href="friend-request.html"><img src="images/friend-request.png"/> <span>FRIEND REQUEST</span>
+              <p>(3)</p>
+              </a></li>
+            <li><a href="meetup-request.html"><img src="images/meetup-request.png"/> <span>MEETUP REQUEST</span>
+              <p>(2)</p>
+              </a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+<script type="text/javascript">
+function logOut(){
+	localStorage.removeItem("herpair_log_id");	
+	window.location = 'login.html';
+}
+</script>
+</html>
