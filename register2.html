@@ -8,6 +8,15 @@
 <link href="css/style.css" type="text/css" rel="stylesheet">
 <script src="js/jquery.min.js"></script>
 <script src="js/config.js"></script>
+<script type="text/javascript"> 
+  function checkDevice(){
+		document.addEventListener("deviceready", onDeviceReady, false);
+}
+  function onDeviceReady() {
+   //navigator.splashscreen.hide(); 
+   return true;  
+  }
+</script>
 <script>
 jQuery(document).ready(function(){
     jQuery(".header-menu").click(function(){
@@ -17,7 +26,7 @@ jQuery(document).ready(function(){
 </script>
 </head>
 
-<body>
+<body onLoad="checkDevice();">
 <div class="wrapper">
   <header>
     <div class="header-top">

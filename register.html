@@ -8,7 +8,17 @@
 <link href="css/style.css" type="text/css" rel="stylesheet">
 <script src="js/jquery.min.js"></script>
 <script src="js/config.js"></script>
-<script>
+<script type="text/javascript">
+  //document.addEventListener("deviceready", onDeviceReady, false);
+  function checkDevice(){
+		document.addEventListener("deviceready", onDeviceReady, false);
+}
+  function onDeviceReady() {
+   //navigator.splashscreen.hide(); 
+   return true;  
+  }
+</script>
+<script type="text/javascript">
 jQuery(document).ready(function(){
     jQuery(".header-menu").click(function(){
         jQuery(this).toggleClass("toggled");
@@ -22,7 +32,7 @@ if(parseInt(localStorage.getItem("herpair_log_id")) > 0)
 </script>
 </head>
 
-<body>
+<body onLoad="checkDevice();">
 <div class="wrapper">
   <header>
     <div class="header-top">

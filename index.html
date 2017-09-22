@@ -7,10 +7,13 @@
 <title>Her Pair</title>
 <link href="css/style.css" type="text/css" rel="stylesheet">
 <script src="js/jquery.min.js"></script>
-<script>
-  document.addEventListener("deviceready", onDeviceReady, false);
+<script type="text/javascript"> 
+  function checkDevice(){
+		document.addEventListener("deviceready", onDeviceReady, false);
+}
   function onDeviceReady() {
-   navigator.splashscreen.hide();   
+   navigator.splashscreen.hide();
+   return true;  
   }
 </script>
 <script>
@@ -30,7 +33,7 @@ if(localStorage.getItem("herpair_log_id") === null){
 </script>
 </head>
 
-<body>
+<body onLoad="checkDevice();">
 <div class="wrapper">
   <header>
     <div class="header-top">
