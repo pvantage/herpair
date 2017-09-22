@@ -28,7 +28,7 @@
 </gap:config-file>
 	<param name="onload" value="true" />
 	<preference name="ShowSplashScreenSpinner" value="false" />
-    <preference name="AutoHideSplashScreen" value="false" />
+    <preference name="AutoHideSplashScreen" value="true" />
 	<icon src="icon.png" />
 	<icon gap:platform="webos" src="res/icon/ios/Icon-180.png" />
 	<icon src="res/icon/ios/Icon-180.png" gap:platform="android" gap:density="ldpi" />
