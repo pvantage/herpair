@@ -72,11 +72,15 @@ function custLogIn(){
 			 dataType: 'json',
 			 crossDomain: true,
 			 success: function(data){
+				 
+				 
 								 
 				 if(data['error'])
-				 {					
+				 {
+					 var errormsg = data['error']['text'];
+					 					
 					navigator.notification.alert(
-						data['error']['text'],
+						errormsg,
 						callBackFunctionFlag, 
 						'Confirm',
 						"OK"
