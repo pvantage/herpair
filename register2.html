@@ -155,8 +155,14 @@ function registerAccount(){
 				$('.registerblock input[type="text"], .registerblock input[type="password"]').removeClass('error'); 
 				 
 				 if(data['error'])
-				 {
-					alert(data['error']['text']);	 
+				 {									
+					navigator.notification.alert(
+						data['error']['text'],
+						callBackFunctionFlag, 
+						'Confirm',
+						"OK"
+					);
+						 
 				 }else if(data['success'])
 				 {
 					localStorage.setItem("herpair_log_id", data['success']['customer_id']);					

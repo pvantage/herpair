@@ -49,6 +49,10 @@ if(parseInt(localStorage.getItem("herpair_log_id")) > 0)
 </div>
 </body>
 <script type="text/javascript">
+function callBackFunctionFlag(){
+	return true;
+}
+
 function custLogIn(){
 	var url = siteurl + '?route=account/login';	
 	jQuery.ajax({
@@ -60,8 +64,14 @@ function custLogIn(){
 			 success: function(data){
 								 
 				 if(data['error'])
-				 {
-					alert(data['error']['text']);	 
+				 {					
+					navigator.notification.alert(
+						data['error']['text'],
+						callBackFunctionFlag, 
+						'Confirm',
+						"OK"
+					);
+						 
 				 }else if(data['success'])
 				 {
 					localStorage.setItem("herpair_log_id", data['success']['customer_id']);					

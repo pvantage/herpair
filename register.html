@@ -53,6 +53,11 @@ if(parseInt(localStorage.getItem("herpair_log_id")) > 0)
 </div>
 </body>
 <script type="text/javascript">
+function callBackFunctionFlag(){
+	$("#loadingImg").fadeOut();
+	return true;
+}
+
 function validateHerPair(){
 	var url = siteurl + '?route=common/home/checkherpair';
 	
@@ -72,7 +77,14 @@ function validateHerPair(){
 				 	window.location = 'register2.html?herpair=' + data['success']['herpair'];
 				 }else if(data['error'])
 				 {				 
-				 	$('input[name="her_pair"]').after('<p class="error">' + data['error']['herpair'] + '</p>');
+				 	//$('input[name="her_pair"]').after('<p class="error">' + data['error']['herpair'] + '</p>');
+					
+					navigator.notification.alert(
+						data['error']['herpair'],
+						callBackFunctionFlag, 
+						'Confirm',
+						"OK"
+					);
 				 }
 			}
    		});	
