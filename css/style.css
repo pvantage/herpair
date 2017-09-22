@@ -44,10 +44,13 @@ body .modal-dialog {
 }
 .upd-prof .uploadbox img {
     width: 100%;
+	float:left;
 }
 .upd-prof .uploadbox {
-    max-width: 33%;
+    border-radius: 50%;
     display: inline-block;
+    max-width: 33%;
+    overflow: hidden;
 }
 .back img {
     width: 12px;
