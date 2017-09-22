@@ -7,12 +7,48 @@
 <title>Her Pair</title>
 <link href="css/style.css" type="text/css" rel="stylesheet">
 <script src="js/jquery.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+<script src="js/config.js"></script>
 <script>
 jQuery(document).ready(function(){
     jQuery(".header-menu").click(function(){
         jQuery(this).toggleClass("toggled");
     });
 });
+
+if(localStorage.getItem("herpair_log_id") === null){
+  window.location = './login.html';
+}else if(parseInt(localStorage.getItem("herpair_log_id")) > 0)
+{
+	var url = siteurl + '?route=common/home/getcustomer';
+	jQuery.ajax({
+			 type: 'POST',
+			 url: url,
+			 data: {customer_id: localStorage.getItem("herpair_log_id")},
+			 dataType: 'json',
+			 crossDomain: true,
+			 success: function(data){
+				 if(data['customer'])
+				 {
+				  
+				 	$("#cust_name").val(data['customer']['name']);
+					$("#cust_email").val(data['customer']['email']);					
+					$("#cust_city").val(data['customer']['city']);
+					$("#whats_app").val(data['customer']['telephone']);
+					$("#cust_country").val(data['customer']['country']);
+					
+					if(data['customer']['prof_pic_1'])
+					{
+						$("#profile_pic").attr('src', data['customer']['prof_pic_1']);
+					}	
+					
+				 }
+					
+					
+				
+			}
+   		});
+}
 </script>
 </head>
 
@@ -23,10 +59,7 @@ jQuery(document).ready(function(){
       <div class="header-menu">
         <div class="menubox"><img src="images/menu.png"></div>
         <ul class="afterclieckshow">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">login</a></li>
-          <li><a href="#">Register</a></li>
-          <li><a href="#">Updated Profile</a></li>
+          <li><a href="index.html">Home</a></li>
         </ul>
       </div>
       <div class="header-right"><img src="images/menu-logo.png"></div>
@@ -36,14 +69,12 @@ jQuery(document).ready(function(){
     <div class="innerpage editprofilepage upd-prof">
       <h1 class="header-title">UPDATE PROFILE</h1>
       <div class="loginmainblock registerblock">
-        <div class="uploadbox"><a href="#"><img src="images/profile.png"/></a></div>
-        <input type="text" placeholder="KATRINA FOX"/>
-        <input type="email" placeholder="KATRINAFOX@GMAIL.COM"/>
-        <input type="number" placeholder="897-890-990"/>
-        <input type="text" placeholder="USA"/>
-        <input type="text" placeholder="SAN JOSE"/>
-        <input type="password" placeholder="NEW PASSWORD"/>
-        <input type="password" placeholder="RE ENTER PASSWORD"/>
+        <div class="uploadbox"><a href="jascript:void(0);"><img src="images/blank.png" id="profile_pic"></a></div>
+        <input type="text" name="cust_name" id="cust_name" placeholder="Please enter name."/>
+        <input type="text" name="cust_email" id="cust_email" placeholder="Please enter email"/>
+        <input type="text" name="whats_app" id="whats_app" placeholder="Please enter whatsapp number"/>
+        <input type="text" name="cust_city" id="cust_city" placeholder="Please enter city"/>
+        <input type="text" name="cust_country" id="cust_country" placeholder="Please enter country"/>        
         <input class="submitbtn" type="submit" value="Update"/>
       </div>
     </div>
