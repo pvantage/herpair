@@ -9,6 +9,12 @@
 <script src="js/jquery.min.js"></script>
 <script src="js/config.js"></script>
 <script>
+  document.addEventListener("deviceready", onDeviceReady, false);
+  function onDeviceReady() {
+   navigator.splashscreen.hide();   
+  }
+</script>
+<script>
 jQuery(document).ready(function(){
     jQuery(".header-menu").click(function(){
         jQuery(this).toggleClass("toggled");
