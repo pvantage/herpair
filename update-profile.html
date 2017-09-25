@@ -21,6 +21,7 @@ if(localStorage.getItem("herpair_log_id") === null){
 }else if(parseInt(localStorage.getItem("herpair_log_id")) > 0)
 {
 	var url = siteurl + '?route=common/home/getcustomer';
+	$("#loadingImg").fadeIn();
 	jQuery.ajax({
 			 type: 'POST',
 			 url: url,
@@ -42,7 +43,9 @@ if(localStorage.getItem("herpair_log_id") === null){
 					if(data['customer']['prof_pic_1'])
 					{
 						$("#profile_pic").attr('src', data['customer']['prof_pic_1']);
-					}	
+					}
+					
+					$("#loadingImg").fadeOut();	
 					
 				 }
 					
