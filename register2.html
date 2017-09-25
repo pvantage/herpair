@@ -56,7 +56,7 @@ jQuery(document).ready(function(){
         <input type="text" name="city" id="city" maxlength="30" placeholder="CITY"/>
         <input type="password" name="user_password" id="user_password" maxlength="10" placeholder="PASSWORD"/>
         <input type="password" name="user_con_pass" id="user_con_pass" maxlength="10" placeholder="RE ENTER PASSWORD"/>
-        <div class="uploadfile"><a href="javascript:void(0);" onClick="uploadImage();">+ UPLOAD PHOTO</a></div>
+        <div class="uploadfile"><a href="javascript:void(0);" onClick="getImage1();">+ UPLOAD PHOTO</a></div>
         <input type="hidden" name="prof_image" id="prof_image">
         <input class="submitbtn" type="submit" onClick="registerAccount();" value="Submit"/>
       </div>
@@ -74,15 +74,15 @@ jQuery(document).ready(function(){
 	return true;
 }
 
-  function uploadImage() {	  
+  function getImage1() {	  
 	             
-           navigator.camera.getPicture(uploadPhoto, function(message) {
+           navigator.camera.getPicture(uploadPhoto1, function(message) {
 						
 			navigator.notification.alert(
-						"sorry! you have discarded image upload.",
+						"sorry, you have discarded image upload.",
 						callBackFunctionFlag, 
-						'Confirmations',
-						"Ok"
+						'Confirm',
+						"OK"
 					);
 			
 			
@@ -90,6 +90,7 @@ jQuery(document).ready(function(){
 		},{
 			quality: 50, 
 			correctOrientation: true,
+			allowEdit : true,
 			targetWidth: 600,
             targetHeight: 600,						
 			destinationType: navigator.camera.DestinationType.FILE_URI,
@@ -99,52 +100,52 @@ jQuery(document).ready(function(){
  
         }
  
-        function uploadPhoto(imageURI) {
+        function uploadPhoto1(imageURI1) {
 			$("#loadingImg").fadeIn();
 			
 			var upload_url = siteurl + '?route=account/upload';			
-            var options = new FileUploadOptions();
-            options.fileKey="file";
-            options.fileName=imageURI1.substr(imageURI1.lastIndexOf('/')+1);
-            options.mimeType="image/jpeg";
+            var options1 = new FileUploadOptions();
+            options1.fileKey="file";
+            options1.fileName=imageURI1.substr(imageURI1.lastIndexOf('/')+1);
+            options1.mimeType="image/jpeg";
  
-            var params = new Object();
-            params.value1 = "test";
-            params.value2 = "param";
+            var params1 = new Object();
+            params1.value1 = "test";
+            params1.value2 = "param";
  
-            options.params = params1;
-            options.chunkedMode = false;
+            options1.params1 = params1;
+            options1.chunkedMode = false;
  
-            var ft = new FileTransfer();
-            ft.upload(imageURI, upload_url, win, fail, options);
+            var ft1 = new FileTransfer();
+            ft1.upload(imageURI1, upload_url, win1, fail1, options1);
         }
  
-        function win(r){
+        function win1(r){
             $("#loadingImg").fadeOut();
-			var resturn_data = jQuery.parseJSON(r.response);
+			var resturn_data_1 = jQuery.parseJSON(r.response);
 			
-			if(resturn_data.success)
-			{							
-				$("#prof_image").val(resturn_data.img_name);
-			}else if(resturn_data.error)
+			if(resturn_data_1.success)
+			{						
+				$("#prof_image").val(resturn_data_1.img_name);
+			}else if(resturn_data_1.error)
 			{								
 				navigator.notification.alert(
-						resturn_data.error,
+						resturn_data_1.error,
 						callBackFunctionFlag, 
 						'Confirm',
-						"Ok"
+						"OK"
 					);
 			}
             
         }
  
-        function fail(error) {
+        function fail1(error) {
            $("#loadingImg").fadeOut();
 			navigator.notification.alert(
 						"An error has occurred",
 						callBackFunctionFlag, 
 						'Confirm',
-						"Ok"
+						"OK"
 					);
         }
  </script>

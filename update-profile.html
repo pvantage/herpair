@@ -37,6 +37,8 @@ if(localStorage.getItem("herpair_log_id") === null){
 					$("#whats_app").val(data['customer']['telephone']);
 					$("#cust_country").val(data['customer']['country']);
 					
+					$("#customer_id").val(localStorage.getItem("herpair_log_id"));
+					
 					if(data['customer']['prof_pic_1'])
 					{
 						$("#profile_pic").attr('src', data['customer']['prof_pic_1']);
@@ -69,16 +71,131 @@ if(localStorage.getItem("herpair_log_id") === null){
     <div class="innerpage editprofilepage upd-prof">
       <h1 class="header-title">UPDATE PROFILE</h1>
       <div class="loginmainblock registerblock">
-        <div class="uploadbox"><a href="jascript:void(0);"><img src="images/blank.png" id="profile_pic"></a></div>
+        <div class="uploadbox"><a href="jascript:void(0);"><img src="images/blank.png" id="profile_pic" onClick="getImage1();"></a></div>
         <input type="text" name="cust_name" id="cust_name" placeholder="Please enter name."/>
+        <input type="hidden" name="new_profile_pic" id="new_profile_pic">
         <input type="text" name="cust_email" id="cust_email" placeholder="Please enter email"/>
+        <input type="hidden" name="customer_id" id="customer_id" value="">
         <input type="text" name="whats_app" id="whats_app" placeholder="Please enter whatsapp number"/>
         <input type="text" name="cust_city" id="cust_city" placeholder="Please enter city"/>
         <input type="text" name="cust_country" id="cust_country" placeholder="Please enter country"/>        
-        <input class="submitbtn" type="submit" value="Update"/>
+        <input class="submitbtn" type="submit" onClick="updateProfile();" value="Update"/>
       </div>
     </div>
   </div>
 </div>
 </body>
+ <script type="text/javascript">
+ 
+ function callBackFunctionFlag(){
+	$("#loadingImg").fadeOut();
+	return true;
+}
+
+  function getImage1() {	  
+	             
+           navigator.camera.getPicture(uploadPhoto1, function(message) {
+						
+			navigator.notification.alert(
+						"sorry, you have discarded image upload.",
+						callBackFunctionFlag, 
+						'Confirm',
+						"OK"
+					);
+			
+			
+			
+		},{
+			quality: 50, 
+			correctOrientation: true,
+			allowEdit : true,
+			targetWidth: 600,
+            targetHeight: 600,						
+			destinationType: navigator.camera.DestinationType.FILE_URI,
+			sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY
+		}
+            );
+ 
+        }
+ 
+        function uploadPhoto1(imageURI1) {
+			$("#loadingImg").fadeIn();
+			
+			var upload_url = siteurl + '?route=account/upload';			
+            var options1 = new FileUploadOptions();
+            options1.fileKey="file";
+            options1.fileName=imageURI1.substr(imageURI1.lastIndexOf('/')+1);
+            options1.mimeType="image/jpeg";
+ 
+            var params1 = new Object();
+            params1.value1 = "test";
+            params1.value2 = "param";
+ 
+            options1.params1 = params1;
+            options1.chunkedMode = false;
+ 
+            var ft1 = new FileTransfer();
+            ft1.upload(imageURI1, upload_url, win1, fail1, options1);
+        }
+ 
+        function win1(r){
+            $("#loadingImg").fadeOut();
+			var resturn_data_1 = jQuery.parseJSON(r.response);
+			
+			if(resturn_data_1.success)
+			{						
+				$("#prof_image").val(resturn_data_1.img_name);
+			}else if(resturn_data_1.error)
+			{								
+				navigator.notification.alert(
+						resturn_data_1.error,
+						callBackFunctionFlag, 
+						'Confirm',
+						"OK"
+					);
+			}
+            
+        }
+ 
+        function fail1(error) {
+           $("#loadingImg").fadeOut();
+			navigator.notification.alert(
+						"An error has occurred",
+						callBackFunctionFlag, 
+						'Confirm',
+						"OK"
+					);
+        }
+ </script>
+<script type="text/javascript">
+function updateProfile(){
+	var url = siteurl + '?route=account/edit';	
+	jQuery.ajax({
+			 type: 'POST',
+			 url: url,
+			 data: $('.registerblock input[type=\'text\'], .registerblock input[type=\'hidden\']'),
+			 dataType: 'json',
+			 crossDomain: true,
+			 success: function(data){
+				$('.registerblock input[type="text"], .registerblock input[type="password"]').removeClass('error'); 
+				 
+				 if(data['error'])
+				 {									
+					navigator.notification.alert(
+						data['error']['text'],
+						callBackFunctionFlag, 
+						'Confirm',
+						"OK"
+					);
+						 
+				 }else if(data['success'])
+				 {
+					localStorage.setItem("herpair_log_id", data['success']['customer_id']);					
+					window.location = './index.html';
+				 }
+			}
+   		});
+	
+}
+</script>
 </html>
