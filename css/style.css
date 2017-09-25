@@ -36,6 +36,38 @@ body {margin: 0; padding: 0; background: #f4f4f4; font-family: 'Montserrat', san
   color: #a4a2a3;
 }
 
+
+.reg-select {
+    float: left;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #e5e5e5;
+    text-align: center;
+    padding-top: 15px;
+    font-size: 30px !important;
+    color: #a4a2a3;
+    font-weight: 500;
+    background: none;
+    border-left: none !important;
+    border-right: none !important;
+    border-radius: 0px;
+    box-shadow: none;
+    text-align: center;
+}
+.reg-select:focus {
+    border: none;
+}
+.reg-select option {
+    text-align: center !important;
+}
+.no_results p {
+    float: left;
+    padding-bottom: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+
 body .modal-dialog {
     margin-top: 20%;
 }
@@ -166,16 +198,16 @@ h1.header-title {
     box-shadow: 0px 0px 6px 2px #e4e4e4;
     margin-bottom: 50px;
 }
-.loginmainblock input {
+.loginmainblock input{
     float: left;
     width: 100%;
     border: none;
     border-bottom: 1px solid #e5e5e5;
     text-align: center;
-        padding-top: 15px;
+    padding-top: 15px;
     font-size: 30px;
-    color: #a4a2a3;
-	    font-weight: 500;
+    color: #a4a2a3;	
+	font-weight: 500;
 }
 .editprofilepage .loginmainblock input{ font-weight:normal;}
 .loginmainblock a {

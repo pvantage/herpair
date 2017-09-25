@@ -25,10 +25,10 @@ jQuery(document).ready(function(){
     <div class="header-menu">
       <div class="menubox"><img src="images/menu.png"></div>
       <ul class="afterclieckshow">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">login</a></li>
-        <li><a href="#">Register</a></li>
-        <li><a href="#">Updated Profile</a></li>
+        <li><a href="index.html">Home</a></li>         
+        <li><a href="update-profile.html">Update Profile</a></li>
+        <li><a href="members.html">Members</a></li>
+       <li><a href="javascript:void(0);" onClick="logOut();">Log Out</a></li>
       </ul>
     </div>
     <div class="header-right"><img src="images/menu-logo.png"></div>
@@ -99,4 +99,10 @@ jQuery(document).ready(function(){
   </div>
 </div>
 </body>
+<script type="text/javascript">
+function logOut(){
+	localStorage.removeItem("herpair_log_id");	
+	window.location = 'login.html';
+}
+</script>
 </html>

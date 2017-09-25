@@ -7,6 +7,8 @@
 <title>Her Pair</title>
 <link href="css/style.css" type="text/css" rel="stylesheet">
 <script src="js/jquery.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+<script src="js/config.js"></script>
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <script src="js/bootstrap.min.js"></script>
 <script>
@@ -15,9 +17,13 @@ jQuery(document).ready(function(){
         jQuery(this).toggleClass("toggled");
     });
 });
+
+
+if(localStorage.getItem("herpair_log_id") === null){
+  window.location = './login.html';
+}
 </script>
 </head>
-
 <body>
 <div class="wrapper">
   <header>
@@ -25,10 +31,10 @@ jQuery(document).ready(function(){
       <div class="header-menu">
         <div class="menubox"><img src="images/menu.png"></div>
         <ul class="afterclieckshow">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">login</a></li>
-          <li><a href="#">Register</a></li>
-          <li><a href="#">Updated Profile</a></li>
+          <li><a href="index.html">Home</a></li>         
+          <li><a href="update-profile.html">Update Profile</a></li>
+          <li><a href="meetup.html">MeetUp</a></li>
+          <li><a href="javascript:void(0);" onClick="logOut();">Log Out</a></li>
         </ul>
       </div>
       <div class="header-right"><img src="images/menu-logo.png"></div>
@@ -38,44 +44,325 @@ jQuery(document).ready(function(){
     <div class="innerpage meetuppage memberpage mmbrpageonly">
       <h1 class="header-title">MEMBERS</h1>
       <div class="metup-btn">
-        <select>
-          <option value="San Jose">San Jose</option>
-          <option value="San Jose">San Jose1</option>
-          <option value="San Jose">San Jose2</option>
+        <select id="city_user" name="city">
+          <option value="">--- Please select city ---</option>
+        <optgroup label="United States">
+        <option value="abilene">Abilene</option>
+        <option value="akron">Akron</option>
+        <option value="albuquerque">Albuquerque</option>
+        <option value="alexandria">Alexandria</option>
+        <option value="allentown">Allentown</option>
+        <option value="amarillo">Amarillo</option>
+        <option value="anaheim">Anaheim</option>
+        <option value="anchorage">Anchorage</option>
+        <option value="ann arbor">Ann Arbor</option>
+        <option value="antioch">Antioch</option>
+        <option value="arlington">Arlington</option>
+        <option value="arvada">Arvada</option>
+        <option value="athens">Athens</option>
+        <option value="atlanta">Atlanta</option>
+        <option value="augusta">Augusta</option>
+        <option value="aurora">Aurora</option>
+        <option value="aurora">Aurora</option>
+        <option value="austin">Austin</option>
+        <option value="bakersfield">Bakersfield</option>
+        <option value="baltimore">Baltimore</option>
+        <option value="baton rouge">Baton Rouge</option>
+        <option value="beaumont">Beaumont</option>
+        <option value="bellevue">Bellevue</option>
+        <option value="berkeley">Berkeley</option>
+        <option value="billings">Billings</option>
+        <option value="birmingham">Birmingham</option>
+        <option value="boise">Boise</option>
+        <option value="boston">Boston</option>
+        <option value="boulder">Boulder</option>
+        <option value="bridgeport">Bridgeport</option>
+        <option value="broken arrow">Broken Arrow</option>
+        <option value="brownsville">Brownsville</option>
+        <option value="buffalo">Buffalo</option>
+        <option value="burbank">Burbank</option>
+        <option value="cambridge">Cambridge</option>
+        <option value="cape coral">Cape Coral</option>
+        <option value="carlsbad">Carlsbad</option>
+        <option value="carrollton">Carrollton</option>
+        <option value="cary">Cary</option>
+        <option value="cedar rapids">Cedar Rapids</option>
+        <option value="centennial">Centennial</option>
+        <option value="chandler">Chandler</option>
+        <option value="charleston">Charleston</option>
+        <option value="charlotte">Charlotte</option>
+        <option value="chattanooga">Chattanooga</option>
+        <option value="chesapeake">Chesapeake</option>
+        <option value="chicago">Chicago</option>
+        <option value="chula vista">Chula Vista</option>
+        <option value="cincinnati">Cincinnati</option>
+        <option value="clarksville">Clarksville</option>
+        <option value="clearwater">Clearwater</option>
+        <option value="cleveland">Cleveland</option>
+        <option value="clovis">Clovis</option>
+        <option value="college station">College Station</option>
+        <option value="colorado springs">Colorado Springs</option>
+        <option value="columbia-sc">Columbia - South Carolina</option>
+        <option value="columbia-mi">Columbia - Missouri</option>
+        <option value="columbus-oh">Columbus - Ohio</option>
+        <option value="columbus-ge">Columbus - Georgia</option>
+        <option value="concord">Concord</option>
+        <option value="coral springs">Coral Springs</option> 
+        <option value="corona">Corona</option>
+        <option value="corpus christi">Corpus Christi</option>
+        <option value="costa mesa">Costa Mesa</option>
+        <option value="dallas">Dallas</option>
+        <option value="daly city">Daly City</option>
+        <option value="davenport">Davenport</option>
+        <option value="dayton">Dayton</option>
+        <option value="denton">Denton</option>
+        <option value="denver">Denver</option>
+        <option value="des moines">Des Moines</option>
+        <option value="detroit">Detroit</option>
+        <option value="durham">Durham</option>
+        <option value="edison">Edison</option>
+        <option value="el cajon">El Cajon</option>
+        <option value="el monte">El Monte</option>
+        <option value="el paso">El Paso</option>
+        <option value="elgin">Elgin</option>
+        <option value="elizabeth">Elizabeth</option>
+        <option value="elk grove">Elk Grove</option>
+        <option value="erie">Erie</option>
+        <option value="escondido">Escondido</option>
+        <option value="eugene">Eugene</option>
+        <option value="evansville">Evansville</option>
+        <option value="everett">Everett</option>
+        <option value="fairfield">Fairfield</option>        
+        <option value="fargo">Fargo</option>
+        <option value="fayetteville">Fayetteville</option>
+        <option value="fontana">Fontana</option>
+        <option value="fort collins">Fort Collins</option>
+        <option value="fort lauderdale">Fort Lauderdale</option>
+        <option value="fort wayne">Fort Wayne</option>
+        <option value="fort worth">Fort Worth</option>
+        <option value="fremont">Fremont</option>
+        <option value="fresno">Fresno</option>
+        <option value="frisco">Frisco</option>
+        <option value="fullerton">Fullerton</option>
+        <option value="gainesville">Gainesville</option>
+        <option value="garden grove">Garden Grove</option>
+        <option value="garland">Garland</option>
+        <option value="gilbert">Gilbert</option>
+        <option value="glendale">Glendale</option>
+        <option value="glendale">Glendale</option>
+        <option value="grand prairie">Grand Prairie</option>
+        <option value="grand rapids">Grand Rapids</option>
+        <option value="green bay">Green Bay</option>
+        <option value="greensboro">Greensboro</option>
+        <option value="gresham">Gresham</option>
+        <option value="hampton">Hampton</option>
+        <option value="hartford">Hartford</option>
+        <option value="hayward">Hayward</option>
+        <option value="henderson">Henderson</option>
+        <option value="hialeah">Hialeah</option>
+        <option value="high point">High Point</option>
+        <option value="hollywood">Hollywood</option>
+        <option value="honolulu">Honolulu</option>
+        <option value="houston">Houston</option>
+        <option value="huntington beach">Huntington Beach</option>
+        <option value="huntsville">Huntsville</option>
+        <option value="independence">Independence</option>
+        <option value="indianapolis">Indianapolis</option>
+        <option value="inglewood">Inglewood</option>
+        <option value="irvine">Irvine</option>
+        <option value="irving">Irving</option>
+        <option value="jackson">Jackson</option>
+        <option value="jacksonville">Jacksonville</option>
+        <option value="jersey city">Jersey City</option>
+        <option value="joliet">Joliet</option>
+        <option value="kansas city-mis">Kansas City - Missouri</option>
+        <option value="kansas city">Kansas City -  	Kansas</option>
+        <option value="kent">Kent</option>
+        <option value="killeen">Killeen</option>
+        <option value="knoxville">Knoxville</option>
+        <option value="lafayette">Lafayette</option>
+        <option value="lakeland">Lakeland</option>
+        <option value="lakewood">Lakewood</option>
+        <option value="lancaster">Lancaster</option>
+        <option value="lansing">Lansing</option>
+        <option value="laredo">Laredo</option>
+        <option value="las cruces">Las Cruces</option>
+        <option value="las vegas">Las Vegas</option>
+        <option value="lewisville">Lewisville</option>
+        <option value="lexington">Lexington</option>
+        <option value="lincoln">Lincoln</option>
+        <option value="little rock">Little Rock</option>
+        <option value="long beach">Long Beach</option>
+        <option value="los angeles">Los Angeles</option> 
+        <option value="louisville">Louisville</option>
+        <option value="lowell">Lowell</option>
+        <option value="lubbock">Lubbock</option>
+        <option value="macon">Macon</option>
+        <option value="madison">Madison</option>
+        <option value="manchester">Manchester</option>
+        <option value="mcallen">McAllen</option>
+        <option value="mckinney">McKinney</option>
+        <option value="memphis">Memphis</option>
+        <option value="mesa">Mesa</option>
+        <option value="mesquite">Mesquite</option>
+        <option value="miami">Miami</option>
+        <option value="miami gardens">Miami Gardens</option>
+        <option value="midland">Midland</option>
+        <option value="milwaukee">Milwaukee</option>
+        <option value="minneapolis">Minneapolis</option>
+        <option value="miramar">Miramar</option>
+        <option value="mobile">Mobile</option>
+        <option value="modesto">Modesto</option>
+        <option value="montgomery">Montgomery</option>
+        <option value="moreno valley">Moreno Valley</option>
+        <option value="murfreesboro">Murfreesboro</option>
+        <option value="murrieta">Murrieta</option>
+        <option value="naperville">Naperville</option>
+        <option value="nashville">Nashville</option>        
+        <option value="new haven">New Haven</option>
+        <option value="new orleans">New Orleans</option>
+        <option value="new york">New York</option>
+        <option value="newark">Newark</option>
+        <option value="newport news">Newport News</option>
+        <option value="norfolk">Norfolk</option>
+        <option value="norman">Norman</option>
+        <option value="north charleston">North Charleston</option>
+        <option value="north las vegas">North Las Vegas</option>
+        <option value="norwalk">Norwalk</option>
+        <option value="oakland">Oakland</option>
+        <option value="oceanside">Oceanside</option>
+        <option value="odessa">Odessa</option>
+        <option value="oklahoma city">Oklahoma City</option>
+        <option value="olathe">Olathe</option>
+        <option value="omaha">Omaha</option>
+        <option value="ontario-ca">ontario - California</option>
+        <option value="orange">Orange</option>
+        <option value="orlando">Orlando</option>
+        <option value="overland park">Overland Park</option>
+        <option value="oxnard">Oxnard</option>
+        <option value="palm bay">Palm Bay</option>
+        <option value="palmdale">Palmdale</option>
+        <option value="pasadena - tx">Pasadena - Texas</option>
+        <option value="pasadena - ca">Pasadena - California</option>
+        <option value="paterson">paterson</option>
+        <option value="pearland">Pearland</option>
+        <option value="pembroke pines">Pembroke Pines</option>
+        <option value="peoria-ar">Peoria - Arizona</option>
+        <option value="peoria-ll">Peoria - Illinois</option>
+        <option value="philadelphia">philadelphia</option>
+        <option value="phoenix">Phoenix</option>
+        <option value="pittsburgh">Pittsburgh</option>
+        <option value="plano">Plano</option>
+        <option value="pomona">Pomona</option>
+        <option value="pompano beach">Pompano Beach</option>
+        <option value="port st. lucie">Port St. Lucie</option>
+        <option value="portland">Portland</option>
+        <option value="providence">Providence</option>
+        <option value="provo">Provo</option>
+        <option value="pueblo">Pueblo</option>
+        <option value="raleigh">Raleigh</option>
+        <option value="rancho cucamonga">Rancho Cucamonga</option>
+        <option value="reno">Reno</option>
+        <option value="rialto">Rialto</option>
+        <option value="richardson">Richardson</option>
+        <option value="richmond-vi">Richmond - Virginia</option>
+        <option value="richmond-ca">Richmond - California</option>
+        <option value="riverside">Riverside</option>
+        <option value="rochester-ny">Rochester - New York</option>
+        <option value="rochester-mi">Rochester - Minnesota</option>
+        <option value="rockford">Rockford</option>
+        <option value="roseville">Roseville</option>
+        <option value="round rock">Round Rock</option>
+        <option value="sacramento">Sacramento</option>
+        <option value="saint paul">Saint Paul</option>
+        <option value="salem">Salem</option>
+        <option value="salinas">Salinas</option>
+        <option value="salt lake city">Salt Lake City</option>
+        <option value="san antonio">San Antonio</option>
+        <option value="san bernardino">San Bernardino</option> 
+        <option value="san diego">San Diego</option>
+        <option value="san francisco">San Francisco</option>
+        <option value="san jose">San Jose</option>
+        <option value="san mateo">San Mateo</option>
+        <option value="sandy springs">Sandy Springs</option>
+        <option value="santa ana">Santa Ana</option>
+        <option value="santa clara">Santa Clara</option>
+        <option value="santa clarita">Santa Clarita</option>
+        <option value="santa maria">Santa Maria</option>
+        <option value="santa rosa">Santa Rosa</option>
+        <option value="savannah">savannah</option>
+        <option value="scottsdale">Scottsdale</option>
+        <option value="seattle">Seattle</option>
+        <option value="shreveport">Shreveport</option>
+        <option value="simi valley">Simi Valley</option>
+        <option value="sioux falls">Sioux Falls</option>
+        <option value="south bend">South Bend</option>
+        <option value="spokane">Spokane</option>
+        <option value="springfield-mi">Springfield - Missouri</option>
+        <option value="springfield-ma">Springfield - Massachusetts</option>
+        <option value="Springfield-ll">Springfield - Illinois</option>
+        <option value="st. louis">St. Louis</option>
+        <option value="st. petersburg">St. Petersburg</option>
+        <option value="stamford">Stamford</option>
+        <option value="sterling heights">Sterling Heights</option>        
+        <option value="stockton">Stockton</option>
+        <option value="sunnyvale">Sunnyvale</option>
+        <option value="surprise">Surprise</option>
+        <option value="syracuse">Syracuse</option>
+        <option value="tacoma">Tacoma</option>
+        <option value="tallahassee">Tallahassee</option>
+        <option value="tampa">Tampa</option>
+        <option value="temecula">Temecula</option>
+        <option value="tempe">Tempe</option>
+        <option value="thornton">Thornton</option>
+        <option value="thousand Oaks">Thousand Oaks</option>
+        <option value="toledo">Toledo</option>
+        <option value="topeka">Topeka</option>
+        <option value="torrance">Torrance</option>
+        <option value="tucson">Tucson</option>
+        <option value="tulsa">Tulsa</option>
+        <option value="tyler">Tyler</option> 
+        <option value="vallejo">Vallejo</option>
+        <option value="vancouver">Vancouver</option>
+        <option value="ventura">Ventura</option>
+        <option value="victorville">Victorville</option>
+        <option value="virginia beach">Virginia Beach</option>
+        <option value="visalia">Visalia</option>
+        <option value="waco">Waco</option>
+        <option value="warren">Warren</option>
+        <option value="washington">Washington</option>
+        <option value="waterbury">Waterbury</option>
+        <option value="west covina">West Covina</option>
+        <option value="west jordan">West Jordan</option>
+        <option value="west palm beach">West Palm Beach</option>
+        <option value="west valley city">West Valley City</option>
+        <option value="westminster">Westminster</option>
+        <option value="wichita">Wichita</option>
+        <option value="wichita falls">Wichita Falls</option>
+        <option value="wilmington">Wilmington</option>
+        <option value="winston–salem">Winston–Salem</option>
+        <option value="woodbridge">Woodbridge</option>
+        <option value="worcester">Worcester</option>
+        <option value="yonkers">Yonkers</option>
+        </optgroup>
+        
+         <optgroup label="Canada">
+         	<option value="hamilton">Hamilton</option>
+            <option value="halifax">Halifax</option>
+            <option value="kingston">Kingston</option>
+            <option value="london">London</option>
+            <option value="montreal">Montreal</option>
+            <option value="ottawa">Ottawa</option>
+            <option value="portland">Portland</option>
+            <option value="quebec">Quebec</option>
+            <option value="saint john">Saint John</option>
+            <option value="toronto">Toronto</option>
+         </optgroup>
         </select>
         <a class="mtup" href="myfreiends.html">My Friends</a> </div>
-      <div class="meetupmainblock">
-        <div class="meetblocks1">
-          <div class="memberleft-block"> <img src="images/profile.png"/> </div>
-          <div class="memberright-block">
-            <h2><a href="#">Tracie Keef</a></h2>
-            <p>tacieokeefe@gmail.com</p>
-            <p>980-000-9890</p>
-          </div>
-          <div class="mem-chat"><a href="#"><img src="images/messages.png"/></a></div>
-          <div class="member-ftr"> <a href="#">Add friend</a> <a href="#">Invite for meetup</a> </div>
-        </div>
-        <div class="meetblocks1">
-          <div class="memberleft-block"> <img src="images/profile.png"/> </div>
-          <div class="memberright-block">
-            <h2><a href="#">Jules Michelle</a></h2>
-            <p>julesm@gmail.com</p>
-            <p>102-000-9890</p>
-          </div>
-          <div class="mem-chat"><a href="#"><img src="images/messages.png"/></a></div>
-          <div class="member-ftr"> <a href="#">Add friend</a> <a href="#">Invite for meetup</a> </div>
-        </div>
-        <div class="meetblocks1">
-          <div class="memberleft-block"> <img src="images/profile.png"/> </div>
-          <div class="memberright-block">
-            <h2><a href="#">Tracie Keef</a></h2>
-            <p>tacieokeefe@gmail.com</p>
-            <p>980-000-9890</p>
-          </div>
-          <div class="mem-chat"><a href="#"><img src="images/messages.png"/></a></div>
-          <div class="member-ftr"> <a href="#">Add friend</a> <a href="#">Invite for meetup</a> </div>
-        </div>
-      </div>
+      <div class="meetupmainblock" id="member_lists"></div>
+      
+      
     </div>
   </div>
 </div>
@@ -102,4 +389,106 @@ jQuery(document).ready(function(){
   </div>
 </div>
 </body>
+<script type="text/javascript">
+function logOut(){
+	localStorage.removeItem("herpair_log_id");
+	localStorage.removeItem("herpair_log_city");
+	window.location = 'login.html';
+}
+
+
+
+$('#city_user option[value="' + localStorage.getItem("herpair_log_city") +'"]').prop('selected', true);
+
+$("#city_user").on('change', function(){
+
+var url = siteurl + '?route=common/home/getcustomerbycity';
+
+var selected_city = $(this).val();
+	
+	jQuery.ajax({
+			 type: 'POST',
+			 url: url,
+			 data: {customer_id: localStorage.getItem("herpair_log_id"), city: selected_city},
+			 dataType: 'json',
+			 crossDomain: true,
+			 success: function(data){				 
+				 
+				 var html_txt = '';			 
+				 
+				 if(data['customer'])
+				 {				
+					for(i = 0; i < data['customer'].length; i++)
+					 { 
+					 		
+					 	html_txt += '<div class="meetblocks1">';
+						html_txt += '<div class="memberleft-block">';
+						
+						if(data['customer'][i]['prof_pic_1'])
+						{
+							html_txt += '<img src="'+ data['customer'][i]['prof_pic_1'] +'">';							
+						}else{
+							html_txt += '<img src="images/blank.png">';
+						}						
+						
+						html_txt += '</div>';
+						
+						
+						
+						html_txt += '<div class="memberright-block">';
+						html_txt += '<h2><a href="javascript:void(0);">'+ data['customer'][i]['name'] +'</a></h2>';
+						html_txt += '<p>'+ data['customer'][i]['email'] +'</p>';
+						html_txt += '<p>'+ data['customer'][i]['telephone'] +'</p>';
+					    html_txt += '</div>';
+						
+						
+						html_txt += '<div class="mem-chat"><a href="javascript:void(0);" onClick="addWhatsapp('+ data['customer'][i]['customer_id']+');"><img src="images/messages.png"/></a></div>';
+          				html_txt += '<div class="member-ftr"><a href="javascript:void(0);">Add friend</a> <a href="#">Invite for meetup</a></div>';
+						
+						
+						html_txt += '</div>';
+					 
+					 }
+					 
+					 console.log(html_txt);
+					 
+					 					 
+				 }else{
+					
+					html_txt += '<div class="meetblocks1"><div class="no_results"><p>No results found</p></div>';
+					
+					html_txt += '</div>';
+					 
+			    }
+				
+				$("#member_lists").html(html_txt);			
+			}
+   		});
+		
+	});
+	
+$("#city_user").trigger('change');
+
+
+
+function addWhatsapp(invite_id){
+	
+	url = siteurl + '?route=common/home/addwhatsapp';
+
+	jQuery.ajax({
+			 type: 'POST',
+			 url: url,
+			 data: {customer_id: localStorage.getItem("herpair_log_id"), invitee: invite_id},
+			 dataType: 'json',
+			 crossDomain: true,
+			 success: function(data){				 
+					
+					
+				
+			}
+   		});
+	
+}
+
+</script>
 </html>

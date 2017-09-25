@@ -33,7 +33,7 @@ if(parseInt(localStorage.getItem("herpair_log_id")) > 0)
 </script>
 </head>
 
-<body onLoad="checkDevice();">
+<body>
 <div class="wrapper">
   <header>
     <div class="header-top">
@@ -76,16 +76,17 @@ function custLogIn(){
 								 
 				 if(data['error'])
 				 {					
-					navigator.notification.alert(
+					/*navigator.notification.alert(
 						data['error']['text'],
 						callBackFunctionFlag, 
 						'Confirm',
 						"OK"
-					);
+					);*/
 						 
 				 }else if(data['success'])
 				 {
-					localStorage.setItem("herpair_log_id", data['success']['customer_id']);					
+					localStorage.setItem("herpair_log_id", data['success']['customer_id']);
+					localStorage.setItem("herpair_log_city", data['success']['city']);					
 					window.location = './index.html';
 				 }
 			}

@@ -41,8 +41,10 @@ if(localStorage.getItem("herpair_log_id") === null){
       <div class="header-menu">
         <div class="menubox"><img src="images/menu.png"></div>
         <ul class="afterclieckshow">
-          <li><a href="javascript:void(0);">Home</a></li>          
-          <li><a href="update-profile.html">Updated Profile</a></li>
+          <li><a href="javascript:void(0);">Home</a></li>
+          <li><a href="members.html">Members</a></li>
+          <li><a href="meetup.html">MeetUp</a></li>
+           <li><a href="update-profile.html">Updated Profile</a></li>
           <li><a href="javascript:void(0);" onClick="logOut();">Log Out</a></li>
         </ul>
       </div>
@@ -74,7 +76,8 @@ if(localStorage.getItem("herpair_log_id") === null){
 </body>
 <script type="text/javascript">
 function logOut(){
-	localStorage.removeItem("herpair_log_id");	
+	localStorage.removeItem("herpair_log_id");
+	localStorage.removeItem("herpair_log_city");	
 	window.location = 'login.html';
 }
 </script>
