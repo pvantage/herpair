@@ -143,7 +143,8 @@ if(localStorage.getItem("herpair_log_id") === null){
 			var resturn_data_1 = jQuery.parseJSON(r.response);
 			
 			if(resturn_data_1.success)
-			{						
+			{
+				$('#profile_pic').attr('src', resturn_data_1.success);						
 				$("#new_profile_pic").val(resturn_data_1.img_name);
 			}else if(resturn_data_1.error)
 			{								
@@ -190,8 +191,13 @@ function updateProfile(){
 						 
 				 }else if(data['success'])
 				 {
-					localStorage.setItem("herpair_log_id", data['success']['customer_id']);					
-					window.location = './index.html';
+					navigator.notification.alert(
+						"Profile Updated Successfully.",
+						callBackFunctionFlag, 
+						'Confirm',
+						"OK"
+					);				
+					
 				 }
 			}
    		});
