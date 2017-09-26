@@ -7,10 +7,10 @@
 <title>Her Pair</title>
 <link href="css/style.css" type="text/css" rel="stylesheet">
 <script src="js/jquery.min.js"></script>
-<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
-<script src="js/config.js"></script>
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <script src="js/bootstrap.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+<script src="js/config.js"></script>
 <script>
 jQuery(document).ready(function(){
     jQuery(".header-menu").click(function(){
@@ -21,31 +21,31 @@ jQuery(document).ready(function(){
 if(localStorage.getItem("herpair_log_id") === null){
   window.location = './login.html';
 }
+
 </script>
 </head>
-
 <body>
 <div class="wrapper">
-  <header>
-    <div class="header-top">
-      <div class="header-menu">
-        <div class="menubox"><img src="images/menu.png"></div>
-        <ul class="afterclieckshow">
-          <li><a href="index.html">Home</a></li>         
-          <li><a href="update-profile.html">Updated Profile</a></li>
-          <li><a href="members.html">Members</a></li>
-          <li><a href="javascript:void(0);" onClick="logOut();">Log Out</a></li>
-        </ul>
-      </div>
-      <div class="header-right"><img src="images/menu-logo.png"></div>
+<header>
+  <div class="header-top">
+    <div class="header-menu">
+      <div class="menubox"><img src="images/menu.png"></div>
+      <ul class="afterclieckshow">
+        <li><a href="index.html">Home</a></li>         
+        <li><a href="update-profile.html">Update Profile</a></li>
+        <li><a href="members.html">Members</a></li>
+       <li><a href="javascript:void(0);" onClick="logOut();">Log Out</a></li>
+      </ul>
     </div>
-  </header>
-  <div class="container">
-    <div class="innerpage meetuppage memberpage">
-      <h1 class="header-title">Friend Request</h1>
-      <div class="metup-btn">
-        <select id="city_user" name="city">
-          <option value="">--- Please select city ---</option>
+    <div class="header-right"><img src="images/menu-logo.png"></div>
+  </div>
+</header>
+<div class="container">
+  <div class="innerpage meetuppage onlymeetup">
+    <h1 class="header-title">My Meetups</h1>
+    <div class="metup-btn">
+      <select id="city_user" name="city">
+        <option value="">--- Please select city ---</option>
         <optgroup label="United States">
         <option value="abilene">Abilene</option>
         <option value="akron">Akron</option>
@@ -344,8 +344,7 @@ if(localStorage.getItem("herpair_log_id") === null){
         <option value="woodbridge">Woodbridge</option>
         <option value="worcester">Worcester</option>
         <option value="yonkers">Yonkers</option>
-        </optgroup>
-        
+        </optgroup>        
          <optgroup label="Canada">
          	<option value="hamilton">Hamilton</option>
             <option value="halifax">Halifax</option>
@@ -359,153 +358,72 @@ if(localStorage.getItem("herpair_log_id") === null){
             <option value="toronto">Toronto</option>
          </optgroup>
         </select>
-        <a class="mtup" href="messages.html">My Friends</a> </div>
-        
-      <div class="meetupmainblock" id="member_lists"></div>
-      
-      
-    </div>
+	 </div>
+    <div class="meetupmainblock" id="member_lists"></div>
+    
+    <div class="meet-ftr"><img src="images/meet-tr.png"/></div>
+    
   </div>
 </div>
+</div>
+<div class="loadermain" id="loadingImg">
+<div class="loader"></div>
+</div>
 </body>
-
 <script type="text/javascript">
 function logOut(){
-	localStorage.removeItem("herpair_log_id");
-	localStorage.removeItem("herpair_log_city");
+	localStorage.removeItem("herpair_log_id");	
 	window.location = 'login.html';
 }
-
-
-
+</script>
+<script type="text/javascript">
 $('#city_user option[value="' + localStorage.getItem("herpair_log_city") +'"]').prop('selected', true);
+</script>
 
+<script type="text/javascript">
 $("#city_user").on('change', function(){
-
-var url = siteurl + '?route=common/home/getmyfriendrequest';
-
-var selected_city = $(this).val();
 	
+	$("#loadingImg").fadeIn();
+	
+	var url = siteurl + '?route=common/home/myMeetup';
+	
+	var selected_city = $(this).val();		
 	jQuery.ajax({
 			 type: 'POST',
 			 url: url,
-			 data: {customer_id: localStorage.getItem("herpair_log_id"), city: selected_city, ucase: 0},
+			 data: {customer_id: localStorage.getItem("herpair_log_id"), city: selected_city},
 			 dataType: 'json',
 			 crossDomain: true,
-			 success: function(data){				 
+			 success: function(data){
+				$("#loadingImg").fadeOut();				 
+				 var html_txt = '';           
 				 
-				 var html_txt = '';			 
-				 
-				 if(data['customer'])
+				 if(data['meetup'])
 				 {				
-					for(i = 0; i < data['customer'].length; i++)
+					for(i = 0; i < data['meetup'].length; i++)
 					 { 
 					 		
 					 	html_txt += '<div class="meetblocks1">';
-						html_txt += '<div class="memberleft-block">';
-						
-						if(data['customer'][i]['prof_pic_1'])
-						{
-							html_txt += '<img src="'+ data['customer'][i]['prof_pic_1'] +'">';							
-						}else{
-							html_txt += '<img src="images/blank.png">';
-						}						
-						
-						html_txt += '</div>';
-						
-						
-						
-						html_txt += '<div class="memberright-block">';
-						html_txt += '<h2><a href="javascript:void(0);">'+ data['customer'][i]['name'] +'</a></h2>';
-						html_txt += '<p>'+ data['customer'][i]['email'] +'</p>';
-						html_txt += '<p>'+ data['customer'][i]['telephone'] +'</p>';
-					    html_txt += '</div>';
-						
-						
-						html_txt += '<div class="mem-chat"><a href="javascript:void(0);" onClick="addWhatsapp('+ data['customer'][i]['customer_id']+');"><img src="images/messages.png"/></a></div>';
-          				html_txt += '<div class="member-ftr"><a href="javascript:void(0);" onClick="accept_dec(\''+data['customer'][i]['invitation_id']+'\', \'1\');">Accept</a> <a href="javascript:void(0);" onClick="accept_dec(\''+data['customer'][i]['invitation_id']+'\', \'2\');">Decline</a></div>';
-						
-						
-						html_txt += '</div>';
-					 
+						html_txt += '<h2><a href="#">'+ data['meetup'][i]['name'] + '</a></h2>';
+						html_txt += '<p>'+ data['meetup'][i]['detail'] + '</p>';
+						html_txt += '<p>Date & Time: '+ data['meetup'][i]['date'] + '</p>';
+						html_txt += '<p>'+ data['meetup'][i]['address'] + '</p>';					
+						html_txt += '</div>';					 
 					 }
-					 
-					 console.log(html_txt);
-					 
 					 					 
 				 }else{
 					
-					html_txt += '<div class="meetblocks1"><div class="no_results"><p>Sorry, you have no friend request.</p></div>';
+					html_txt += '<div class="meetblocks1"><div class="no_results"><p>No results found</p></div>';
 					
 					html_txt += '</div>';
 					 
 			    }
 				
-				$("#member_lists").html(html_txt);			
+				$("#member_lists").html(html_txt);				 
 			}
-   		});
-		
-	});
-	
+   		});	
+});
+
 $("#city_user").trigger('change');
-
-function addWhatsapp(invite_id){
-	
-	url = siteurl + '?route=common/home/addwhatsapp';
-
-	jQuery.ajax({
-			 type: 'POST',
-			 url: url,
-			 data: {customer_id: localStorage.getItem("herpair_log_id"), invitee: invite_id},
-			 dataType: 'json',
-			 crossDomain: true,
-			 success: function(data){				 
-					
-					navigator.notification.alert(
-						'Invitation sent successfully.',
-						callBackFunctionFlag, 
-						'Confirm',
-						"OK"
-					);
-				
-			}
-   		});
-	
-}
-
-function accept_dec(invitation_id, user_case){
-	url = siteurl + '?route=common/home/acceptinvitation';
-	
-	
-	//alert(user_case);
-	
-
-	jQuery.ajax({
-			 type: 'POST',
-			 url: url,
-			 data: {invite_id: invitation_id, ucase: user_case},
-			 dataType: 'json',
-			 crossDomain: true,
-			 success: function(data){				 
-					
-					navigator.notification.alert(
-						'Friend invitation updated.',
-						callBackFunctionFlag, 
-						'Confirm',
-						"OK"
-					);
-					
-					//alert("Friend invitation updated");
-					
-					window.location.reload(true);
-				
-			}
-   		});
-}
-
-
-function callBackFunctionFlag(){	
-	return true;
-}
 </script>
 </html>

@@ -7,8 +7,10 @@
 <title>Her Pair</title>
 <link href="css/style.css" type="text/css" rel="stylesheet">
 <script src="js/jquery.min.js"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+<script src="js/config.js"></script>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<script src="js/bootstrap.min.js"></script>
 <script>
 jQuery(document).ready(function(){
     jQuery(".header-menu").click(function(){
@@ -25,10 +27,10 @@ jQuery(document).ready(function(){
       <div class="header-menu">
         <div class="menubox"><img src="images/menu.png"></div>
         <ul class="afterclieckshow">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">login</a></li>
-          <li><a href="#">Register</a></li>
-          <li><a href="#">Updated Profile</a></li>
+          <li><a href="index.html">Home</a></li>         
+          <li><a href="update-profile.html">Updated Profile</a></li>
+          <li><a href="members.html">Members</a></li>
+          <li><a href="javascript:void(0);" onClick="logOut();">Log Out</a></li>
         </ul>
       </div>
       <div class="header-right"><img src="images/menu-logo.png"></div>

@@ -21,6 +21,7 @@ jQuery(document).ready(function(){
 if(localStorage.getItem("herpair_log_id") === null){
   window.location = './login.html';
 }
+
 </script>
 </head>
 
@@ -31,7 +32,7 @@ if(localStorage.getItem("herpair_log_id") === null){
       <div class="header-menu">
         <div class="menubox"><img src="images/menu.png"></div>
         <ul class="afterclieckshow">
-          <li><a href="index.html">Home</a></li>         
+           <li><a href="index.html">Home</a></li>         
           <li><a href="update-profile.html">Updated Profile</a></li>
           <li><a href="members.html">Members</a></li>
           <li><a href="javascript:void(0);" onClick="logOut();">Log Out</a></li>
@@ -41,8 +42,8 @@ if(localStorage.getItem("herpair_log_id") === null){
     </div>
   </header>
   <div class="container">
-    <div class="innerpage meetuppage memberpage">
-      <h1 class="header-title">Friend Request</h1>
+    <div class="innerpage meetuppage memberpage myfriendspage">
+      <h1 class="header-title">My Friends</h1>
       <div class="metup-btn">
         <select id="city_user" name="city">
           <option value="">--- Please select city ---</option>
@@ -359,11 +360,82 @@ if(localStorage.getItem("herpair_log_id") === null){
             <option value="toronto">Toronto</option>
          </optgroup>
         </select>
-        <a class="mtup" href="messages.html">My Friends</a> </div>
+    
+        <a class="back" href="index.html"> <img src="images/arrow.png"/>Back</a> </div>
+        
         
       <div class="meetupmainblock" id="member_lists"></div>
       
       
+      
+      
+      
+    </div>
+  </div>
+</div>
+
+
+<!--<div class="meetblocks1">
+          <div class="memberleft-block"> <img src="images/profile.png"/> </div>
+          <div class="memberright-block">
+            <h2><a href="#">Tracie Keef</a></h2>
+            <p>tacieokeefe@gmail.com</p>
+            <p>980-000-9890</p>
+          </div>
+          <div class="mem-chat"><a href="#" data-toggle="modal" data-target="#myModal1"><img src="images/messages.png"/></a></div>
+          <div class="member-ftr"> <a href="#" data-toggle="modal" data-target="#myModal2">Remove friend</a> <a href="#" data-toggle="modal" data-target="#myModal3">Invite for meetup</a> </div>
+        </div>-->
+
+
+
+<div class="modal fade add-meetuppopup newchatrequest" id="myModal1" role="dialog">
+  <div class="modal-dialog"> 
+    
+  
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">NEW CHAT REQUEST</h4>
+      </div>
+      <div class="modal-body">
+        <p><span>Jules Michelle</span> would like to start a whatsapp chat. </p>
+        <div class="meetblocks1">
+          <div class="memberleft-block"> <img src="images/profile.png"/> </div>
+          <div class="memberright-block">
+            <h2><a href="#">Tracie Keef</a></h2>
+            <p>tacieokeefe@gmail.com</p>
+            <p> 980-000-9890</p>
+          </div>
+        </div>
+        <div class="member-ftr"> <a href="#">Accept</a> <a href="#">Decline</a> </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="modal fade add-meetuppopup newchatrequest newmeetupinvite" id="myModal3" role="dialog">
+  <div class="modal-dialog"> 
+    
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">NEW MEETUP INVITE</h4>
+      </div>
+      <div class="modal-body">
+        <p><span>Jules Michelle </span>would like to invite 
+          you to a meetup.</p>
+        <p class="detailbox">Details below:</p>
+        <div class="meetblocks1">
+          <h2><a href="#">Meetup 2</a></h2>
+          <p>Overcoming business challanges using fin</p>
+          <p><span>Date & Time:</span>19 Oct, 2076, 12:30PM</p>
+          <p><span>Venue:</span>10 madison Ave, Arlignton</p>
+        </div>
+        <div class="member-ftr"> <a href="#">Accept</a> <a href="#">Decline</a> </div>
+      </div>
     </div>
   </div>
 </div>
@@ -389,7 +461,7 @@ var selected_city = $(this).val();
 	jQuery.ajax({
 			 type: 'POST',
 			 url: url,
-			 data: {customer_id: localStorage.getItem("herpair_log_id"), city: selected_city, ucase: 0},
+			 data: {customer_id: localStorage.getItem("herpair_log_id"), city: selected_city, ucase: 1},
 			 dataType: 'json',
 			 crossDomain: true,
 			 success: function(data){				 
@@ -422,8 +494,8 @@ var selected_city = $(this).val();
 					    html_txt += '</div>';
 						
 						
-						html_txt += '<div class="mem-chat"><a href="javascript:void(0);" onClick="addWhatsapp('+ data['customer'][i]['customer_id']+');"><img src="images/messages.png"/></a></div>';
-          				html_txt += '<div class="member-ftr"><a href="javascript:void(0);" onClick="accept_dec(\''+data['customer'][i]['invitation_id']+'\', \'1\');">Accept</a> <a href="javascript:void(0);" onClick="accept_dec(\''+data['customer'][i]['invitation_id']+'\', \'2\');">Decline</a></div>';
+						html_txt += '<div class="mem-chat"><a href="javascript:void(0);"><img src="images/messages.png"/></a></div>';
+          				html_txt += '<div class="member-ftr"><a href="javascript:void(0);" onClick="remove_friend(\''+data['customer'][i]['invitation_id']+'\');">Remove friend</a> <a href="javascript:void(0);">Invite for meetup</a></div>';
 						
 						
 						html_txt += '</div>';
@@ -435,7 +507,7 @@ var selected_city = $(this).val();
 					 					 
 				 }else{
 					
-					html_txt += '<div class="meetblocks1"><div class="no_results"><p>Sorry, you have no friend request.</p></div>';
+					html_txt += '<div class="meetblocks1"><div class="no_results"><p>Sorry, you have no friends.</p></div>';
 					
 					html_txt += '</div>';
 					 
@@ -449,54 +521,25 @@ var selected_city = $(this).val();
 	
 $("#city_user").trigger('change');
 
-function addWhatsapp(invite_id){
-	
-	url = siteurl + '?route=common/home/addwhatsapp';
+
+function remove_friend(invitation_id){
+	url = siteurl + '?route=common/home/removeFriend';	
 
 	jQuery.ajax({
 			 type: 'POST',
 			 url: url,
-			 data: {customer_id: localStorage.getItem("herpair_log_id"), invitee: invite_id},
+			 data: {invite_id: invitation_id},
 			 dataType: 'json',
 			 crossDomain: true,
 			 success: function(data){				 
 					
-					navigator.notification.alert(
-						'Invitation sent successfully.',
+					/*navigator.notification.alert(
+						'Friend list updated successfully.',
 						callBackFunctionFlag, 
 						'Confirm',
 						"OK"
-					);
-				
-			}
-   		});
-	
-}
-
-function accept_dec(invitation_id, user_case){
-	url = siteurl + '?route=common/home/acceptinvitation';
-	
-	
-	//alert(user_case);
-	
-
-	jQuery.ajax({
-			 type: 'POST',
-			 url: url,
-			 data: {invite_id: invitation_id, ucase: user_case},
-			 dataType: 'json',
-			 crossDomain: true,
-			 success: function(data){				 
-					
-					navigator.notification.alert(
-						'Friend invitation updated.',
-						callBackFunctionFlag, 
-						'Confirm',
-						"OK"
-					);
-					
-					//alert("Friend invitation updated");
-					
+					);	*/				
+										
 					window.location.reload(true);
 				
 			}

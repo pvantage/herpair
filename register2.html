@@ -6,9 +6,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Her Pair</title>
 <link href="css/style.css" type="text/css" rel="stylesheet">
+<link type="text/css" rel="stylesheet" href="css/jquery.selectBoxIt.css" />
 <script src="js/jquery.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
 <script src="js/config.js"></script>
+<script src="js/jquery-ui.min.js"></script>
+<script src="js/jquery.selectBoxIt.min.js"></script>
 <script type="text/javascript"> 
   function checkDevice(){
 		document.addEventListener("deviceready", onDeviceReady, false);
@@ -385,6 +388,11 @@ jQuery(document).ready(function(){
 <div class="loader"></div>
 </div>
 </body>
+<script>
+jQuery(function($) {
+jQuery('select').selectBoxIt({ });
+});
+</script>
  <script type="text/javascript">
  
  function callBackFunctionFlag(){

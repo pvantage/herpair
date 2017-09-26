@@ -36,7 +36,70 @@ body {margin: 0; padding: 0; background: #f4f4f4; font-family: 'Montserrat', san
   color: #a4a2a3;
 }
 
+/*select box css start here for registerpage*/
 
+.selectboxit-container .selectboxit {
+    background: #fff !important;
+    border:none;
+	border-bottom:1px solid #e5e5e5 !important;
+    border-radius: 0 !important;
+    cursor: pointer;
+    display: block;
+    height: 50px !important;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    width: 100% !important;
+	
+}
+.selectboxit-arrow-container {
+    top: 0;
+}
+.selectboxit-text {
+    float: none !important;
+}
+.selectboxit-container .selectboxit-options {
+    width: 100%;
+}
+.selectboxit-container span, .selectboxit-container .selectboxit-options a {
+line-height: 50px !important;
+    font-size: 30px;
+    height: 57px !important;
+    margin-left: 0px !important;
+    color: #a4a2a3 !important;
+    font-weight: 500;
+    font-family: 'Montserrat', sans-serif !important;
+    text-transform: uppercase;
+    padding-top: 6px;
+	text-align:center;
+}
+.metuppop .selectboxit-container span, .metuppop .selectboxit-container .selectboxit-options a { font-size:17px;}
+.selectboxit-container{ width:100%;}
+.selectboxit-container .selectboxit-options {
+    border-radius: 0px !important;
+    min-width: 100% !important;
+    top: 100% !important;
+}
+
+.add-meetuppopup .loginmainblock input.submitbtn {
+margin-top: 24px;
+padding-bottom: 12px;
+}
+
+/*select box css end here for registerpage*/
+
+.sendmeetup select {
+    width: 100%;
+    border-radius: 0px;
+    background: none;
+    color: #000;
+    margin: 20px 0px;
+    padding: 7px;
+    font-size: 20px !important;
+    box-shadow: none;
+    border: 1px solid #414141;
+}
 .reg-select {
     float: left;
     width: 100%;
@@ -59,12 +122,6 @@ body {margin: 0; padding: 0; background: #f4f4f4; font-family: 'Montserrat', san
 }
 .reg-select option {
     text-align: center !important;
-}
-.no_results p {
-    float: left;
-    padding-bottom: 20px;
-    text-align: center;
-    width: 100%;
 }
 
 
@@ -674,6 +731,9 @@ h1.header-title { font-size: 27px;}
 .loginmainblock input {
     font-size: 21px;
 }
+.selectboxit-container span, .selectboxit-container .selectboxit-options a {
+    font-size: 21px;
+}
 .loginmainblock {
     padding: 18px 30px;
 }
@@ -715,6 +775,10 @@ ul.db_ul li {    width: 42%;    margin: 6px;    padding: 0px 11px;    min-height
 .loginmainblock input {
     font-size: 18px;
 	font-weight: normal;
+}
+.selectboxit-container span, .selectboxit-container .selectboxit-options a {
+    font-size: 18px;
+    font-weight: normal;
 }	
 .newmeetupinvite .meetblocks1 p {font-size:13px; margin-top:6px;}	
 .myfriendspage .meetblocks1 h2 a {
