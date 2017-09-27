@@ -19,15 +19,9 @@
   function onDeviceReady() {
    //navigator.splashscreen.hide(); 
    
-   var plt = 'Device Platform: ' + device.platform ;
-   
-   plt += "\n";
-   
-   plt += 'Device Id: ' + device.uuid;
-   
-   alert(plt);
-   
-   return true;  
+    $("#device_platform").val(device.platform);
+    $("#device_id").val(device.uuid);   
+    return true;  
   }
 </script>
 <script>
@@ -61,7 +55,8 @@ jQuery(document).ready(function(){
           <li class="active"><a href="javascript:void(0);"><span>2</span></a></li>
         </ul>
         <input type="hidden" name="herpair" id="herpair">
-       
+       	<input type="hidden" name="device_platform" id="device_platform">
+        <input type="hidden" name="device_id" id="device_id">
         
         <input type="text" name="name" id="name" maxlength="30" placeholder="NAME"/>
         <input type="text" name="email" id="email" maxlength="50" placeholder="EMAIL"/>
