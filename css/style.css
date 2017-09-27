@@ -53,6 +53,12 @@ p.stats {
     position: relative;
     width: 100%;
 }
+.no_results p {
+    float: left;
+    width: 100%;
+    text-align: center;
+}
+.upd-prof .selectboxit-container span, .upd-prof .selectboxit-container .selectboxit-options a{ font-weight:normal;     text-transform: capitalize;}
 /*select box css start here for registerpage*/
 
 .selectboxit-container .selectboxit {
@@ -155,13 +161,14 @@ body .modal-dialog {
 .upd-prof .uploadbox {
     border-radius: 50%;
     display: inline-block;
-    max-width: 33%;
+    max-width: 150px;
     overflow: hidden;
+    height: 150px;
 }
 .back img {
-    width: 12px;
+ /*   width: 12px;
     float: left;
-    margin-top: 8px;
+    margin-top: 8px;*/
     margin-right: 3px;
 }
 .upd-prof .uploadbox a {
