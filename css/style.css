@@ -689,6 +689,8 @@ p.detailbox {
     -o-transform: translate(-50%,-50%);
     -webkit-transform: translate(-50%,-50%);
 }
+
+.no_results p{ text-align:center; padding-bottom:20px;}
 /**Responsive css start here**/
 
 @media only screen and (min-width:601px) and (max-width:700px){
