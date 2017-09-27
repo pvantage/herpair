@@ -15,9 +15,7 @@
 		document.addEventListener("deviceready", onDeviceReady, false);
 }
   function onDeviceReady() {
-   //navigator.splashscreen.hide();
-   $("#device_platform").val(device.platform);
-   $("#device_id").val(device.uuid); 
+   //navigator.splashscreen.hide();  
    return true;  
   }
 </script>
@@ -27,11 +25,6 @@ jQuery(document).ready(function(){
         jQuery(this).toggleClass("toggled");
     });
 });
-
-if(parseInt(localStorage.getItem("herpair_log_id")) > 0)
-{
-	window.location = './index.html';
-}
 </script>
 </head>
 
@@ -50,15 +43,11 @@ if(parseInt(localStorage.getItem("herpair_log_id")) > 0)
   </header>
   <div class="container">
     <div class="innerpage loginpage">
-      <h1 class="header-title">LOGIN</h1>
+      <h1 class="header-title">Forgot Password</h1>
       <div class="loginmainblock">
-        <input type="text" name="login_email" id="login_email" placeholder="EMAIL ID"/>
-        <input type="password" name="login_password" id="login_password" placeholder="PASSWORD"/>
-        <input type="hidden" name="device_platform" id="device_platform">
-        <input type="hidden" name="device_id" id="device_id">
-        <a href="forgot.html">Forgot Password?</a>
-        <input class="submitbtn" type="submit" onClick="custLogIn();" value="Log in"/>
-        <a class="register-link" href="register.html">Register</a> </div>
+        <input type="text" name="reset_email" id="reset_email" placeholder="EMAIL ID"/>        
+        <input class="submitbtn" type="submit" onClick="forgotPassword();" value="Submit"/>
+       </div>
     </div>
   </div>
 </div>
@@ -68,12 +57,12 @@ function callBackFunctionFlag(){
 	return true;
 }
 
-function custLogIn(){
-	var url = siteurl + '?route=account/login';	
+function forgotPassword(){
+	var url = siteurl + '?route=account/forgotten';	
 	jQuery.ajax({
 			 type: 'POST',
 			 url: url,
-			 data: $('.loginpage input[type=\'text\'], .loginpage input[type=\'password\'],.loginpage input[type=\'hidden\']'),
+			 data: $('.loginpage input[type=\'text\']'),
 			 dataType: 'json',
 			 crossDomain: true,
 			 success: function(data){
@@ -86,12 +75,19 @@ function custLogIn(){
 						'Confirm',
 						"OK"
 					);
+					
+					
 						 
 				 }else if(data['success'])
-				 {
-					localStorage.setItem("herpair_log_id", data['success']['customer_id']);
-					localStorage.setItem("herpair_log_city", data['success']['city']);					
-					window.location = './index.html';
+				 {									
+					navigator.notification.alert(
+						"Please check your email and click on verification link.",
+						callBackFunctionFlag, 
+						'Confirm',
+						"OK"
+					);
+					
+					$("#reset_email").val('');
 				 }
 			}
    		});

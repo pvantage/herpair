@@ -35,7 +35,24 @@ body {margin: 0; padding: 0; background: #f4f4f4; font-family: 'Montserrat', san
 :-moz-placeholder { /* Firefox 18- */
   color: #a4a2a3;
 }
-
+img.acptd-metup-icon {
+    position: absolute;
+    right: 0px;
+    width: 53px;
+}
+span.tacp {
+    float: left;
+}
+.stats label {
+    float: left;
+    font-weight: normal;
+    padding-top: 5px;
+	line-height: normal;
+}
+p.stats {
+    position: relative;
+    width: 100%;
+}
 /*select box css start here for registerpage*/
 
 .selectboxit-container .selectboxit {
@@ -420,6 +437,7 @@ body select {
     box-shadow: 0px 1px 4px #000;
     float: left;
     font-size: 13px !important;
+	    width: 100px;
 }
 .metup-btn {
     text-align: center;
@@ -772,6 +790,12 @@ ul.db_ul li {    width: 42%;    margin: 6px;    padding: 0px 11px;    min-height
 }
 
 @media only screen and (min-width:320px) and (max-width:480px){
+img.total-acctp {
+    width: 38px;
+}
+img.acptd-metup-icon {
+    width: 47px;
+}	
 .loginmainblock input {
     font-size: 18px;
 	font-weight: normal;
@@ -846,4 +870,12 @@ ul.db_ul li {    width: 42%;    margin: 6px;    padding: 0px 11px;    min-height
 .meetblocks1 h2 a {    font-size: 16px; margin-bottom: 3px;}
 .meetblocks1 p {    font-size: 13px;    margin-top: 3px;}
 .onlymeetup .meetblocks1 p {    font-size: 14px;    margin-top: 3px;}
+}
+@media only screen and (min-width:320px) and (max-width:380px){
+img.acptd-metup-icon {
+    width: 42px;
+}
+.stats label {
+    padding-top: 10px;
+}
 }

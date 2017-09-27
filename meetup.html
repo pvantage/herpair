@@ -821,8 +821,16 @@ $("#city_user").on('change', function(){
 					 	html_txt += '<div class="meetblocks1">';
 						html_txt += '<h2><a href="#">'+ data['meetup'][i]['name'] + '</a></h2>';
 						html_txt += '<p>'+ data['meetup'][i]['detail'] + '</p>';
-						html_txt += '<p>Date & Time: '+ data['meetup'][i]['date'] + '</p>';
-						html_txt += '<p>'+ data['meetup'][i]['address'] + '</p>';		
+						html_txt += '<p><span>Date & Time:</span> '+ data['meetup'][i]['date'] + '</p>';
+						html_txt += '<p><span>Venue:</span> '+ data['meetup'][i]['address'] + '</p>';		
+						
+						html_txt += '<p class="stats"><span class="tacp"><img class="total-acctp" src="images/count.png"/></span><label>'+ data['meetup'][i]['total'] + '</label>';
+						
+						if(data['meetup'][i]['enroll'])
+						{
+							html_txt += '<img class="acptd-metup-icon" src="images/acceptedmeetup.png"/>';
+						}
+						html_txt += '</p>';
 						
 						html_txt += '</div>';
 					 
