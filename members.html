@@ -45,7 +45,7 @@ if(localStorage.getItem("herpair_log_id") === null){
       <h1 class="header-title">MEMBERS</h1>
       <div class="metup-btn">
         <select id="city_user" name="city">
-        <option value="">--- Please select city ---</option>
+        <option value="">Please select city</option>
         <optgroup label="United States">
         <option value="abilene">Abilene</option>
         <option value="akron">Akron</option>
@@ -569,12 +569,10 @@ function sendInvite(){
 						callBackFunctionFlag, 
 						'Confirm',
 						"OK"
-					);					
-								
-						 
+					);
+					
 				 }else if(data['success'])
 				 {
-					
 					$('#meetup_invite input[type=\'hidden\']').val('');
 					$('#meetup_invite select[name=\'meetup_list\']').val('');
 					$('#meetup_invite').modal('hide');					
@@ -586,8 +584,7 @@ function sendInvite(){
 					);					
 				 }
 			}
-   		});
-	
+   		});	
 }
 </script>
 </html>
