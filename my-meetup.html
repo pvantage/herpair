@@ -363,6 +363,7 @@ if(localStorage.getItem("herpair_log_id") === null){
             <option value="toronto">Toronto</option>
          </optgroup>
         </select>
+        <a class="back" href="javascript:void(0);" onClick="goBack();"> <img src="images/arrow.png"/><span>Back</span></a>
 	 </div>
     <div class="meetupmainblock" id="member_lists"></div>
     
@@ -386,6 +387,19 @@ $('#city_user option[value="' + localStorage.getItem("herpair_log_city") +'"]').
 </script>
 
 <script type="text/javascript">
+
+function goBack(){
+	  var nav = window.navigator;
+            if( this.phonegapNavigationEnabled &&
+                nav &&
+                nav.app &&
+                nav.app.backHistory ){
+                nav.app.backHistory();
+            } else {
+                window.history.back();
+            }	
+}
+
 $("#city_user").on('change', function(){
 	
 	$("#loadingImg").fadeIn();
