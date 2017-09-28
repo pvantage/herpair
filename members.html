@@ -530,14 +530,28 @@ function inviteFriend(cust_invite_id){
 			 data: {customer_id: localStorage.getItem("herpair_log_id"), invite_id: cust_invite_id},
 			 dataType: 'json',
 			 crossDomain: true,
-			 success: function(data){				 
+			 success: function(data){			 
 					
+					
+				 if(data['error'])
+				 {									
+					navigator.notification.alert(
+						"Already sent invitaions.",
+						callBackFunctionFlag, 
+						'Confirm',
+						"OK"
+					);
+					
+				 }else if(data['success'])
+				 {
+										
 					navigator.notification.alert(
 						'Friend invitation sent successfully.',
 						callBackFunctionFlag, 
 						'Confirm',
 						"OK"
-					);
+					);					
+				 }
 				
 			}
    		});
