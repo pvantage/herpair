@@ -5,8 +5,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Her Pair</title>
+<link rel="stylesheet" href="css/bootstrap.min.css">
 <link href="css/style.css" type="text/css" rel="stylesheet">
 <script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
 <script src="js/config.js"></script>
 <script type="text/javascript">
@@ -14,36 +16,38 @@
   function checkDevice(){
 		document.addEventListener("deviceready", onDeviceReady, false);
 }
-  function onDeviceReady() {
-   //navigator.splashscreen.hide();
+  function onDeviceReady() { 
    $("#device_platform").val(device.platform);
    $("#device_id").val(device.uuid); 
    return true;  
   }
 </script>
 <script>
-jQuery(document).ready(function(){
-    jQuery(".header-menu").click(function(){
-        jQuery(this).toggleClass("toggled");
-    });
-});
-
 if(parseInt(localStorage.getItem("herpair_log_id")) > 0)
 {
 	window.location = './index.html';
 }
 </script>
-</head>
+<script>
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+}
 
-<body onLoad="onDeviceReady();">
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+}
+</script>
+</head>
+<body onLoad="checkDevice();">
 <div class="wrapper">
   <header>
     <div class="header-top">
       <div class="header-menu">
-        <div class="menubox"><img src="images/menu.png"></div>
-        <ul class="afterclieckshow">
-          <li><a href="index.html">Home</a></li>         
-        </ul>
+		<span class="menubox" onclick="openNav()"><img src="images/menu.png"></span>
+		<div id="mySidenav" class="sidenav">
+          <a href="javascript:void(0);" class="closebtn" onclick="closeNav()">&times;</a>
+          <a href="index.html">Home</a>         
+	</div>        
       </div>
       <div class="header-right"><img src="images/menu-logo.png"></div>
     </div>

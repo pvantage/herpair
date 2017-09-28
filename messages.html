@@ -6,10 +6,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Her Pair</title>
 <link href="css/style.css" type="text/css" rel="stylesheet">
+<link rel="stylesheet" href="css/bootstrap.min.css">
 <script src="js/jquery.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
 <script src="js/config.js"></script>
-<link rel="stylesheet" href="css/bootstrap.min.css">
 <script src="js/bootstrap.min.js"></script>
 <script>
 if(localStorage.getItem("herpair_log_id") === null){
@@ -17,52 +17,6 @@ if(localStorage.getItem("herpair_log_id") === null){
 }
 
 </script>
-
-
-<style>
-body {
-    font-family: "Lato", sans-serif;
-}
-
-.sidenav {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #e13d4c;
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
-}
-
-.sidenav a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #fff;
-    display: block;
-    transition: 0.3s;
-}
-
-.sidenav a:hover {
-    color: #f1f1f1;
-}
-
-.sidenav .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-}
-
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
-}
-</style>
 <script>
 function openNav() {
     document.getElementById("mySidenav").style.width = "250px";
@@ -83,18 +37,13 @@ function closeNav() {
       <div class="header-menu">
 			<span class="menubox" onclick="openNav()"><img src="images/menu.png"></span>
 		<div id="mySidenav" class="sidenav">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="#">Home</a>
-  <a href="#">login</a>
-  <a href="#">Register</a>
-  <a href="#">Updated Profile</a>
-</div>
-        <ul class="afterclieckshow">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">login</a></li>
-          <li><a href="#">Register</a></li>
-          <li><a href="#">Updated Profile</a></li>
-        </ul>
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+          <a href="index.html">Home</a>
+          <a href="members.html">Members</a>
+          <a href="meetup.html">MeetUp</a>
+          <a href="update-profile.html">Updated Profile</a>
+          <a href="javascript:void(0);" onClick="logOut();">Log Out</a>
+	</div>        
       </div>
       <div class="header-right"><img src="images/menu-logo.png"></div>
     </div>
