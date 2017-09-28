@@ -58,6 +58,9 @@ p.stats {
     width: 100%;
     text-align: center;
 }
+.forgotpage input#reset_email {
+    margin-bottom: 44px;
+}
 .upd-prof .selectboxit-container span, .upd-prof .selectboxit-container .selectboxit-options a{ font-weight:normal;     text-transform: capitalize;}
 /*select box css start here for registerpage*/
 
@@ -181,6 +184,7 @@ body.lauch-body {
     float: left;
     margin: 0px;
     line-height: normal;
+    width: 100%;
 }
 .newchatrequest .meetblocks1 h2 a {
     margin-bottom: 2px;
@@ -448,6 +452,7 @@ body select {
 }
 .metup-btn {
     text-align: center;
+    padding-top: 8px;
 }
 a.addmeetup {
     color: #000;
@@ -596,6 +601,7 @@ a.mtup {
 	    padding: 20px 0px;
 }
 .member-ftr a:first-child{border-right: 1px solid #d6d6d6;}
+.member-ftr a.no_border{border-right: none;}
 .memberpage .meetblocks1 {
     padding-left: 0px;
     padding-right: 0px;

@@ -87,7 +87,7 @@ if(localStorage.getItem("herpair_log_id") === null){
           <a href="index.html">Home</a>
           <a href="members.html">Members</a>
           <a href="meetup.html">MeetUp</a>
-          <a href="update-profile.html">Updated Profile</a>
+          <a href="update-profile.html">Update Profile</a>
           <a href="javascript:void(0);" onClick="logOut();">Log Out</a>
 	</div>        
       </div>
@@ -442,12 +442,17 @@ function logOut(){
 	window.location = 'login.html';
 }
 
-
-</script>
-<script>
-jQuery(function($) {
-jQuery('select').selectBoxIt({ });
-});
+function goBack(){
+	  var nav = window.navigator;
+            if( this.phonegapNavigationEnabled &&
+                nav &&
+                nav.app &&
+                nav.app.backHistory ){
+                nav.app.backHistory();
+            } else {
+                window.history.back();
+            }	
+}
 </script>
  <script type="text/javascript">
  
@@ -569,5 +574,10 @@ function updateProfile(){
    		});
 	
 }
+</script>
+<script>
+jQuery(function($) {
+jQuery('select').selectBoxIt({ });
+});
 </script>
 </html>
