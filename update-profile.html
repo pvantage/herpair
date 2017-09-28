@@ -10,10 +10,18 @@
 <link type="text/css" rel="stylesheet" href="css/jquery.selectBoxIt.css" />
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
-<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
 <script src="js/config.js"></script>
 <script src="js/jquery-ui.min.js"></script>
 <script src="js/jquery.selectBoxIt.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+<script type="text/javascript"> 
+  function checkDevice(){
+		document.addEventListener("deviceready", onDeviceReady, false);
+}
+  function onDeviceReady() {
+    return true;  
+  }
+</script>
 <script>
 function openNav() {
     document.getElementById("mySidenav").style.width = "250px";
@@ -68,8 +76,7 @@ if(localStorage.getItem("herpair_log_id") === null){
 }
 </script>
 </head>
-
-<body>
+<body onLoad="checkDevice();">
 <div class="wrapper">
   <header>
     <div class="header-top">
