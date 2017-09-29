@@ -11,13 +11,13 @@
 <script src="js/bootstrap.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
 <script src="js/config.js"></script>
-<script type="text/javascript"> 
-  function checkDevice(){
-		document.addEventListener("deviceready", onDeviceReady, false);
+<script>
+if(localStorage.getItem("herpair_log_id") === null){
+  window.location = './login.html';
+}else if(parseInt(localStorage.getItem("herpair_log_id")) > 0)
+{
+	
 }
-  function onDeviceReady() {  
-   return true;  
-  }
 </script>
 <script>
 function openNav() {
@@ -28,22 +28,36 @@ function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
 }
 </script>
-<script>
-if(localStorage.getItem("herpair_log_id") === null){
-  window.location = './login.html';
-}else if(parseInt(localStorage.getItem("herpair_log_id")) > 0)
-{
-	
+
+
+<script type="text/javascript"> 
+  function checkDevice(){
+		document.addEventListener("deviceready", onDeviceReady, false);
 }
+  function onDeviceReady(){
+	  
+	 var url = siteurl + '?route=common/home/mypendingstats';	
+	jQuery.ajax({
+			 type: 'POST',
+			 url: url,
+			 data: {customer_id: localStorage.getItem("herpair_log_id"), ucase: 0},
+			 dataType: 'json',
+			 crossDomain: true,
+			 success: function(data){		
+				
+				$(".count_friend_request").html(data['pending_friend_request']);
+				$(".count_meetup_request").html(data['pending_meetup_request']);			
+			}
+   		});
+	    
+   
+  }
 </script>
 </head>
-
 <body onLoad="checkDevice();">
 <div class="wrapper">
   <header>
     <div class="header-top">
-
-
       <div class="header-menu">
 			<span class="menubox" onclick="openNav()"><img src="images/menu.png"></span>
 		<div id="mySidenav" class="sidenav">
@@ -69,10 +83,10 @@ if(localStorage.getItem("herpair_log_id") === null){
             <li><a href="messages.html"><img src="images/messages.png"/> <span>MESSAGES</span></a></li>
             <li><a href="update-profile.html"><img src="images/profiles.png"/> <span>PROFILE</span></a></li>
             <li><a href="friend-request.html"><img src="images/friend-request.png"/> <span>FRIEND REQUEST</span>
-              <p>(3)</p>
+              <p class="count_friend_request"></p>
               </a></li>
             <li><a href="meetup-request.html"><img src="images/meetup-request.png"/> <span>MEETUP REQUEST</span>
-              <p>(2)</p>
+              <p class="count_meetup_request"></p>
               </a></li>
           </ul>
         </div>
