@@ -39,7 +39,7 @@ function closeNav() {
 			 dataType: 'json',
 			 crossDomain: true,
 			 success: function(data){		
-				
+				$(".chat_request").html(data['pening_chat_request']);
 				$(".count_friend_request").html(data['pending_friend_request']);
 				$(".count_meetup_request").html(data['pending_meetup_request']);			
 			}
@@ -73,7 +73,7 @@ function closeNav() {
           <ul class="db_ul">
             <li><a href="members.html"><img src="images/member.png"/> <span>MEMBERS</span></a></li>
             <li><a href="meetup.html"><img src="images/meetup.png"/> <span>MEET UPS</span></a></li>
-            <li><a href="messages.html"><img src="images/messages.png"/> <span>CHAT INVITATIONS</span></a></li>
+            <li><a href="messages.html"><img src="images/messages.png"/> <span>CHAT INVITATIONS</span><p class="chat_request"></p></a></li>
             <li><a href="update-profile.html"><img src="images/profiles.png"/> <span>PROFILE</span></a></li>
             <li><a href="friend-request.html"><img src="images/friend-request.png"/> <span>FRIEND REQUEST</span><p class="count_friend_request"></p></a></li>
             <li><a href="friends.html"><img src="images/friend-request.png"/> <span>MY FRIEND List</span><p class="count_friend_request"></p></a></li>
