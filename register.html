@@ -94,29 +94,15 @@ function validateHerPair(){
 function scan()
 {
     cordova.plugins.barcodeScanner.scan(
-        function (result) {
-            if(!result.cancelled)
-            {
-                
-                    navigator.notification.prompt("Please enter name of data",  function(input){
-                        var name = input.input1;
-                        var value = result.text;
-
-                        var data = localStorage.getItem("LocalData");
-                       
-                        data = JSON.parse(data);
-                        data[data.length] = [name, value];
-
-                        localStorage.setItem("LocalData", JSON.stringify(data));
-						alert(value);
-                        //$('#her_pair').val(value);
-                    });
-                
-            }
-        },
-        function (error) {
-            alert("Scanning failed: " + error);
-        }
+       function (result) {
+          alert("We got a barcode\n" +
+                "Result: " + result.text + "\n" +
+                "Format: " + result.format + "\n" +
+                "Cancelled: " + result.cancelled);
+      },
+      function (error) {
+          alert("Scanning failed: " + error);
+      }
    );
 }
 
