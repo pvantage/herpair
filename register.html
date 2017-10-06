@@ -96,14 +96,17 @@ function scan()
     cordova.plugins.barcodeScanner.scan(
        function (result) {
 		   
-		   $("#her_pair").val(result.text);
-          /*alert("We got a barcode\n" +
-                "Result: " + result.text + "\n" +
-                "Format: " + result.format + "\n" +
-                "Cancelled: " + result.cancelled);*/
+		   $("#her_pair").val(result.text);          
       },
       function (error) {
-          alert("Scanning failed: " + error);
+         var scan_error = "Scanning failed: " + error;
+		  navigator.notification.alert(
+						scan_error,
+						callBackFunctionFlag, 
+						'Confirm',
+						"OK"
+					);
+		  
       }
    );
 }
