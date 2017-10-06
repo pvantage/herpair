@@ -78,8 +78,7 @@ function validateHerPair(){
 				 	window.location = 'register2.html?herpair=' + data['success']['herpair'];
 				 }else if(data['error'])
 				 {				 
-				 	//$('input[name="her_pair"]').after('<p class="error">' + data['error']['herpair'] + '</p>');
-					
+				 						
 					navigator.notification.alert(
 						data['error']['herpair'],
 						callBackFunctionFlag, 
@@ -90,5 +89,37 @@ function validateHerPair(){
 			}
    		});	
 }
+</script>
+<script type="text/javascript">
+function scan()
+{
+    cordova.plugins.barcodeScanner.scan(
+        function (result) {
+            if(!result.cancelled)
+            {
+                if(result.format == "QR_CODE")
+                {
+                    navigator.notification.prompt("Please enter name of data",  function(input){
+                        var name = input.input1;
+                        var value = result.text;
+
+                        var data = localStorage.getItem("LocalData");
+                       
+                        data = JSON.parse(data);
+                        data[data.length] = [name, value];
+
+                        localStorage.setItem("LocalData", JSON.stringify(data));
+
+                        $('#her_pair').val(value);
+                    });
+                }
+            }
+        },
+        function (error) {
+            alert("Scanning failed: " + error);
+        }
+   );
+}
+
 </script>
 </html>
