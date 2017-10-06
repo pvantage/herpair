@@ -786,7 +786,7 @@ ul.tabs li a {
 .meetblocks1 h2 a {    font-size: 26px;}
 .meetblocks1 p {        font-size: 20px;    margin-top: 8px;}
 .db_ul a span {
-    font-size: 28px;
+    font-size: 19px;
 }
 ul.tabs li a span {
     width: 36px;
@@ -846,7 +846,7 @@ ul.tabs li {
 ul.tabs {
     margin-bottom: 30px;
 }
-ul.db_ul li {    width: 42%;    margin: 6px;    padding: 0px 11px;    min-height: 116px;    padding-top: 10px;}
+ul.db_ul li {    width: 42%;    margin: 6px;    padding: 0px 11px;    min-height: 158px;    padding-top: 10px;}
 .db_ul img {       margin-bottom: 3px;    height: 40px;}
 }
 
@@ -938,5 +938,10 @@ img.acptd-metup-icon {
 }
 .stats label {
     padding-top: 10px;
+}
+}
+@media only screen and (min-width:320px) and (max-width:330px){
+	.db_ul a span {
+    font-size: 15px;
 }
 }
