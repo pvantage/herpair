@@ -97,8 +97,7 @@ function scan()
         function (result) {
             if(!result.cancelled)
             {
-                if(result.format == "QR_CODE")
-                {
+                
                     navigator.notification.prompt("Please enter name of data",  function(input){
                         var name = input.input1;
                         var value = result.text;
@@ -112,7 +111,7 @@ function scan()
 						alert(value);
                         //$('#her_pair').val(value);
                     });
-                }
+                
             }
         },
         function (error) {
