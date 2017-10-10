@@ -14,6 +14,11 @@
 <script src="js/jquery-ui.min.js"></script>
 <script src="js/jquery.selectBoxIt.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+<script type="text/javascript">
+jQuery(function($) {
+	jQuery('select').selectBoxIt();
+});
+</script>
 <script type="text/javascript"> 
   function checkDevice(){
 		document.addEventListener("deviceready", onDeviceReady, false);
@@ -46,18 +51,16 @@ if(localStorage.getItem("herpair_log_id") === null){
 			 crossDomain: true,
 			 success: function(data){
 				 if(data['customer'])
-				 {
-				  
+				 {				  
 				 	$("#cust_name").val(data['customer']['name']);
-					$("#cust_email").val(data['customer']['email']);					
+					$("#cust_email").val(data['customer']['email']);										
+					//$('#cust_city option[value="' + data['customer']['city'] +'"]').prop('selected', true);
+					
+					$('#cust_city option:contains("' + data['customer']['city'] +'")').prop('selected', true);
+					jQuery('#cust_city').selectBoxIt('selectOption', data['customer']['city']);
 										
-					$('#cust_city option[value="' + data['customer']['city'] +'"]').prop('selected', true);
-					
-					
-					
 					$("#whats_app").val(data['customer']['telephone']);
-					$("#cust_country").val(data['customer']['country']);
-					
+					$("#cust_country").val(data['customer']['country']);					
 					$("#customer_id").val(localStorage.getItem("herpair_log_id"));
 					
 					if(data['customer']['prof_pic_1'])
@@ -66,16 +69,15 @@ if(localStorage.getItem("herpair_log_id") === null){
 					}
 					
 					$("#loadingImg").fadeOut();
-					jQuery('select').selectBoxIt({ });	
 					
-				 }
-					
-					
-				
+					//alert(data['customer']['city']);
+				 }				
 			}
    		});
 }
 </script>
+
+
 </head>
 <body onLoad="checkDevice();">
 <div class="wrapper">
@@ -455,11 +457,7 @@ function goBack(){
             }	
 }
 </script>
-<script type="text/javascript">
-jQuery(function($) {
-	jQuery('select').selectBoxIt({ });
-});
-</script>
+
  <script type="text/javascript">
  
  function callBackFunctionFlag(){
