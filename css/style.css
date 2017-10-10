@@ -873,6 +873,7 @@ img.acptd-metup-icon {
 .myfriendspage .meetblocks1 p {
     font-size: 13px;
     margin-top: 0;
+	width:100%;
     float: left;
 }	
 .newchatrequest .member-ftr a {

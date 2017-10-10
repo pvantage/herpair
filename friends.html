@@ -787,7 +787,9 @@ var selected_city = $(this).val();
 					    html_txt += '</div>';
 						
 						
-						html_txt += '<div class="mem-chat"><a href="javascript:void();" onclick="window.plugins.socialsharing.shareViaWhatsApp(\'I would like to add you my contact list.\', null, null, function() {}, function(errormsg){});"><img src="images/messages.png"/></a></div>';
+						html_txt += '<div class="mem-chat"><a href="javascript:void(0);" onClick="addWhatsapp('+ data['customer'][i]['customer_id']+');"><img src="images/messages.png"/></a></div>';
+						
+						
           				html_txt += '<div class="member-ftr"><a href="javascript:void(0);" onClick="remove_friend(\''+data['customer'][i]['invitation_id']+'\');">Remove friend</a> <a href="javascript:void(0);" onclick="showMyinvite('+ data['customer'][i]['customer_id']+');">Invite for meetup</a></div>';
 						
 						
@@ -936,6 +938,29 @@ function sendInvite(){
 				 }
 			}
    		});	
+}
+
+function addWhatsapp(invite_id){
+	
+	url = siteurl + '?route=common/home/addwhatsapp';
+
+	jQuery.ajax({
+			 type: 'POST',
+			 url: url,
+			 data: {customer_id: localStorage.getItem("herpair_log_id"), invitee: invite_id},
+			 dataType: 'json',
+			 crossDomain: true,
+			 success: function(data){				 
+					
+					navigator.notification.alert(
+						'Invitation sent successfully.',
+						callBackFunctionFlag, 
+						'Confirm',
+						"OK"
+					);				
+			 }
+   		});
+	
 }
 </script>
 </html>
