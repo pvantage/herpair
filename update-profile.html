@@ -65,7 +65,8 @@ if(localStorage.getItem("herpair_log_id") === null){
 						$("#profile_pic").attr('src', data['customer']['prof_pic_1']);
 					}
 					
-					$("#loadingImg").fadeOut();	
+					$("#loadingImg").fadeOut();
+					jQuery('select').selectBoxIt({ });	
 					
 				 }
 					
@@ -454,6 +455,11 @@ function goBack(){
             }	
 }
 </script>
+<script type="text/javascript">
+jQuery(function($) {
+	jQuery('select').selectBoxIt({ });
+});
+</script>
  <script type="text/javascript">
  
  function callBackFunctionFlag(){
@@ -574,10 +580,5 @@ function updateProfile(){
    		});
 	
 }
-</script>
-<script type="text/javascript">
-jQuery(window).load(function() {
-	jQuery('select').selectBoxIt({ });
-});
 </script>
 </html>
